@@ -1,0 +1,28 @@
+﻿<Page x:Class="EngEval.Pages.Test.Prepare"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EngEval.Pages.Test"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Prepare">
+
+    <DockPanel Background="LightYellow">
+        <TextBlock HorizontalAlignment="Center" FontSize="40" Text="正在加载音频，请稍后...(1/16)" DockPanel.Dock="Top" Margin="0 200 0 0"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="40" Text="音频加载完毕，可以开始测试。" DockPanel.Dock="Top"></TextBlock>
+        <DockPanel Width="1000" Height="400" VerticalAlignment="Top" Margin=" 0 100 0 0">
+            <DockPanel DockPanel.Dock="Top" Background="#FF0068E2">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="注意事项" FontSize="40" Foreground="White"></TextBlock>
+            </DockPanel>
+            <DockPanel Background="#FF00489B" DockPanel.Dock="Bottom" >
+                <Button Background="#FFFCFA5A" Grid.Column="0" FontSize="40" Content="进入测试" Width="300" DockPanel.Dock="Right" Margin="10" Click="StartTest_Click"></Button>
+                <Button Background="#FFFCFA5A" Grid.Column="1" FontSize="40" Content="退出考试" Width="300" DockPanel.Dock="Right" Margin="10" Click="GoBack_Click"></Button>
+                <DockPanel></DockPanel>
+            </DockPanel>
+            <DockPanel Background="AliceBlue" >
+                <TextBlock TextWrapping="Wrap" Text="测试说明XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" FontSize="40" Margin="20"></TextBlock>
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</Page>

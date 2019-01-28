@@ -1,0 +1,28 @@
+﻿<Window x:Class="EngEval.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EngEval"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" 
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="英语听力评估系统" 
+        Width="1920"
+        Height="1080"
+        FontFamily="Microsoft YaHei">
+    <!--不能更改大小、初始化最大、无上边栏-->
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="100" Visibility="Collapsed" Background="#FF35496A" Name="TopBar">
+            <Button DockPanel.Dock="Right" FontSize="40" Foreground="White" Width="150" Background="#FF35496A" Click="Quit_Click">退出</Button>
+            <DockPanel VerticalAlignment="Center" Margin="100 0 0 0">
+                <TextBlock Text="您好！" FontSize="40" Foreground="White" ></TextBlock>
+                <TextBlock Name="USER_NAME" Text="XXXX" FontSize="40" Foreground="White" ></TextBlock>
+                <TextBlock Text="学号：" FontSize="40" Foreground="White"  Margin=" 100 0 0 0"></TextBlock>
+                <TextBlock Name="SUT_NO" Text="XXXX" FontSize="40" Foreground="White" ></TextBlock>
+            </DockPanel>
+        </DockPanel>
+        <Frame Name="frmMain" NavigationUIVisibility="Hidden"></Frame>
+    </DockPanel>
+</Window>

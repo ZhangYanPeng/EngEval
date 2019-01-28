@@ -1,0 +1,46 @@
+﻿<Page x:Class="EngEval.Pages.funclist"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EngEval.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="funclist">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Click="BeginTest_Click">
+            <DockPanel>
+                <TextBlock FontSize="60" HorizontalAlignment="Center" Text="听力认知诊断" DockPanel.Dock="Bottom"></TextBlock>
+                <Image Source="../Images/Icon/test.png"></Image>
+            </DockPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="1">
+            <DockPanel>
+                <TextBlock FontSize="60" HorizontalAlignment="Center" Text="单次测试报告" DockPanel.Dock="Bottom"></TextBlock>
+                <Image Source="../Images/Icon/report.png"></Image>
+            </DockPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="0">
+            <DockPanel>
+                <TextBlock FontSize="60" HorizontalAlignment="Center" Text="使用向导" DockPanel.Dock="Bottom"></TextBlock>
+                <Image Source="../Images/Icon/help.png"></Image>
+            </DockPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1">
+            <DockPanel>
+                <TextBlock FontSize="60" HorizontalAlignment="Center" Text="总结报告" DockPanel.Dock="Bottom"></TextBlock>
+                <Image Source="../Images/Icon/reports.png"></Image>
+            </DockPanel>
+        </Button>
+        <DataGrid HorizontalAlignment="Left" Height="100" Margin="-399,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Page>
