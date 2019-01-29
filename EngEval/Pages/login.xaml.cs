@@ -68,12 +68,7 @@ namespace EngEval.Pages
             }
             else
             {
-               // MessageBox.Show("网络错误请重试！");
-                MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
-                mainwin.FrameNavigator("funclist");
-                Account user = new Account() { name = "0000000",student_no="11111"};
-                user.id = 10;
-                mainwin.User = user;
+                MessageBox.Show("网络错误请重试！");
                 return;
             }
         }

@@ -9,19 +9,20 @@
       Title="Prepare">
 
     <DockPanel Background="LightYellow">
-        <TextBlock HorizontalAlignment="Center" FontSize="40" Text="正在加载音频，请稍后...(1/16)" DockPanel.Dock="Top" Margin="0 200 0 0"></TextBlock>
-        <TextBlock HorizontalAlignment="Center" FontSize="40" Text="音频加载完毕，可以开始测试。" DockPanel.Dock="Top"></TextBlock>
+        <TextBlock Visibility="Visible" Name="LoadingAudiosText" HorizontalAlignment="Center" FontSize="40" Text="正在加载音频，请稍后...(0/16)" DockPanel.Dock="Top" Margin="0 200 0 0"></TextBlock>
+        <TextBlock Visibility="Collapsed" Name="LoadingFinishText" HorizontalAlignment="Center" FontSize="40" Text="音频加载完毕，可以开始测试。" DockPanel.Dock="Top" Margin="0 200 0 0"></TextBlock>
         <DockPanel Width="1000" Height="400" VerticalAlignment="Top" Margin=" 0 100 0 0">
             <DockPanel DockPanel.Dock="Top" Background="#FF0068E2">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="注意事项" FontSize="40" Foreground="White"></TextBlock>
             </DockPanel>
             <DockPanel Background="#FF00489B" DockPanel.Dock="Bottom" >
-                <Button Background="#FFFCFA5A" Grid.Column="0" FontSize="40" Content="进入测试" Width="300" DockPanel.Dock="Right" Margin="10" Click="StartTest_Click"></Button>
+                <Button Name="StartTestBtn" IsEnabled="False" Background="#FFFCFA5A" Grid.Column="0" FontSize="40" Content="进入测试" Width="300" DockPanel.Dock="Right" Margin="10" Click="StartTest_Click"></Button>
                 <Button Background="#FFFCFA5A" Grid.Column="1" FontSize="40" Content="退出考试" Width="300" DockPanel.Dock="Right" Margin="10" Click="GoBack_Click"></Button>
                 <DockPanel></DockPanel>
             </DockPanel>
             <DockPanel Background="AliceBlue" >
-                <TextBlock TextWrapping="Wrap" Text="测试说明XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" FontSize="40" Margin="20"></TextBlock>
+                <TextBlock FontSize="40" Margin="20 20 20 0" Name="TestName" Text="测试名称：" DockPanel.Dock="Top"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="测试说明XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" FontSize="40" Margin="20 0 20 0"></TextBlock>
             </DockPanel>
         </DockPanel>
     </DockPanel>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="EngEval.Pages.Test.QuestionContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EngEval.Pages.Test"
+             mc:Ignorable="d" d:DesignWidth="900">
+    <Grid>
+        <GroupBox  BorderBrush="LightGray" Padding="10">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Text="第 "></TextBlock>
+                    <TextBlock FontSize="20" Name="QueNo" Text="1"></TextBlock>
+                    <TextBlock FontSize="20" Text=" 题:"></TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <StackPanel Orientation="Vertical">
+                <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                <DockPanel Margin="5">
+                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
+                    <TextBlock FontSize="20" Text="A." Margin="0 0 5 0"/>
+                    <TextBlock Name="Option1" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                <DockPanel Margin="5">
+                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
+                    <TextBlock FontSize="20" Text="B." Margin="0 0 5 0"/>
+                    <TextBlock Name="Option2" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                <DockPanel Margin="5">
+                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
+                    <TextBlock FontSize="20" Text="C." Margin="0 0 5 0"/>
+                    <TextBlock Name="Option3" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                <DockPanel Margin="5">
+                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
+                    <TextBlock FontSize="20" Text="D." Margin="0 0 5 0"/>
+                    <TextBlock Name="Option4" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
+                </DockPanel>
+            </Border>
+            <Border>
+                <DockPanel Margin="5">
+                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
+                    <TextBlock FontSize="20" Text="E." Margin="0 0 5 0"/>
+                    <TextBlock Name="Option5" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
+                </DockPanel>
+                </Border>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

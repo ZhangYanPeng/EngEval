@@ -62,9 +62,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AccountAction.cs" />
+    <Compile Include="AccountAction.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Http\DownloadFile.cs" />
     <Compile Include="Common\Http\HTTPClientHelper.cs" />
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Test.cs" />
     <Compile Include="Pages\funclist.xaml.cs">
       <DependentUpon>funclist.xaml</DependentUpon>
     </Compile>
@@ -74,7 +78,14 @@
     <Compile Include="Pages\Test\Prepare.xaml.cs">
       <DependentUpon>Prepare.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Test\Progress.xaml.cs">
+      <DependentUpon>Progress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test\QuestionContent.xaml.cs">
+      <DependentUpon>QuestionContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Setting.cs" />
+    <Compile Include="TestAction.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +112,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Test\Prepare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\Progress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\QuestionContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TEMP\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

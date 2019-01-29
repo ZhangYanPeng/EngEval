@@ -7,7 +7,9 @@ namespace EngEval
 {
     class Setting
     {
-        public static string BASE_URL = "http://202.117.216.251:8080/Evaluation/";
-        //public static string BASE_URL = "http://localhost:8080/xjtu/";
+        //public static string SEVER_URL = "http://202.117.216.251:8080/";
+        //public static string BASE_URL = SEVER_URL+"Evaluation/";
+        public static string SEVER_URL = "http://localhost:8080/";
+        public static string BASE_URL = SEVER_URL + "xjtu/";
     }
 }

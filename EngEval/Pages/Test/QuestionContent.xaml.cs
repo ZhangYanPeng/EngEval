@@ -15,26 +15,13 @@ using System.Windows.Shapes;
 namespace EngEval.Pages.Test
 {
     /// <summary>
-    /// Dotest.xaml 的交互逻辑
+    /// QuestionContent.xaml 的交互逻辑
     /// </summary>
-    public partial class Dotest : Page
+    public partial class QuestionContent : UserControl
     {
-        int i = 1;
-        public Dotest()
+        public QuestionContent()
         {
             InitializeComponent();
-            Loaded += new RoutedEventHandler(Init);
-        }
-
-        private void Init(object sender, RoutedEventArgs e)
-        {
-            TestProgressBar.SetProgress(1,2,16);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            i++;
-            TestProgressBar.SetProgress(i, i+1, 16);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace EngEval
 
         public void FrameNavigator(string page)
         {
-            frmMain.Navigate(new Uri("Pages/"+ page +".xaml", UriKind.Relative));
+            frmMain.Navigate(new Uri("Pages/" + page + ".xaml", UriKind.Relative));
         }
 
         //退出系统
