@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngEval.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,17 @@ namespace EngEval.Pages.Test
     /// </summary>
     public partial class QuestionContent : UserControl
     {
-        public QuestionContent()
+        public QuestionContent(Question question)
         {
             InitializeComponent();
+            string tmpstr = question.options.Replace("||", "|");
+            string[] options = tmpstr.Split('|');
+
+            Option1.Text = options[1];
+            Option2.Text = options[2];
+            Option3.Text = options[3];
+            Option4.Text = options[4];
+            Option5.Text = options[5];
         }
     }
 }

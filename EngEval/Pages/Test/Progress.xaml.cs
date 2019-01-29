@@ -28,15 +28,21 @@ namespace EngEval.Pages.Test
         /// 设置进度
         /// </summary>
         /// <param name="current">当前在做大体第一小题编号 之前题目为已做过的</param>
-        /// <param name="future">下一大体第一小题编号</param>
+        /// <param name="future">当前在做大体最后一小题编号</param>
         /// <param name="total">题目总数</param>
         public void SetProgress(int current, int future, int total)
         {
             //清空进度条，重绘
             ProgressBar.Children.Clear();
-            ProgressInfo.Text = String.Format("本套测试一共含{0}个小题，您现在位于第{1}小题。", total, current);
-            int num = 0;
-            while(num < total)
+            string tmp = "";
+            for(int i = current; i <= future; i++){
+                tmp += i.ToString();
+                if (i < future)
+                    tmp += "、";
+            }
+            ProgressInfo.Text = String.Format("本套测试一共含{0}个小题，您现在位于第{1}小题。", total, tmp);
+            int num = 1;
+            while(num <= total)
             {
                 //题号
                 TextBlock textBlock = new TextBlock();
@@ -60,7 +66,7 @@ namespace EngEval.Pages.Test
                     border.Background = new SolidColorBrush(color);
                     border.BorderBrush = new SolidColorBrush(color);
                 }
-                else if(num < future)
+                else if(num <= future)
                 {
                     color = Color.FromRgb(205, 91, 69);
                     textBlock.Foreground = new SolidColorBrush(color);

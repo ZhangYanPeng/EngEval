@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EngEval.Pages.Test"
-             mc:Ignorable="d" d:DesignWidth="900">
+             mc:Ignorable="d" MaxWidth="900">
     <Grid>
         <GroupBox  BorderBrush="LightGray" Padding="10">
             <GroupBox.Header>
@@ -16,39 +16,39 @@
             </GroupBox.Header>
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
-                <DockPanel Margin="5">
-                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
-                    <TextBlock FontSize="20" Text="A." Margin="0 0 5 0"/>
-                    <TextBlock Name="Option1" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
-                </DockPanel>
-            </Border>
-            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
-                <DockPanel Margin="5">
-                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
-                    <TextBlock FontSize="20" Text="B." Margin="0 0 5 0"/>
-                    <TextBlock Name="Option2" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
-                </DockPanel>
-            </Border>
-            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
-                <DockPanel Margin="5">
-                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
-                    <TextBlock FontSize="20" Text="C." Margin="0 0 5 0"/>
-                    <TextBlock Name="Option3" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
-                </DockPanel>
-            </Border>
-            <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
-                <DockPanel Margin="5">
-                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
-                    <TextBlock FontSize="20" Text="D." Margin="0 0 5 0"/>
-                    <TextBlock Name="Option4" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
-                </DockPanel>
-            </Border>
-            <Border>
-                <DockPanel Margin="5">
-                    <CheckBox DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 4 5 0"/>
-                    <TextBlock FontSize="20" Text="E." Margin="0 0 5 0"/>
-                    <TextBlock Name="Option5" FontSize="20" TextWrapping="Wrap">||It can measure the drivessssssssssssssr’s blood-alcohol level</TextBlock>
-                </DockPanel>
+                    <DockPanel Margin="5">
+                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <TextBlock FontSize="20" Text="A." Margin="0 0 5 0" Width="20"/>
+                        <TextBlock Name="Option1" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                    <DockPanel Margin="5">
+                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <TextBlock FontSize="20" Text="B." Margin="0 0 5 0" Width="20"/>
+                        <TextBlock Name="Option2" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                    <DockPanel Margin="5">
+                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <TextBlock FontSize="20" Text="C." Margin="0 0 5 0" Width="20"/>
+                        <TextBlock Name="Option3" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
+                    <DockPanel Margin="5">
+                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <TextBlock FontSize="20" Text="D." Margin="0 0 5 0" Width="20"/>
+                        <TextBlock Name="Option4" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <Border>
+                    <DockPanel Margin="5">
+                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <TextBlock FontSize="20" Text="E." Margin="0 0 5 0" Width="20"/>
+                        <TextBlock Name="Option5" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
                 </Border>
             </StackPanel>
         </GroupBox>

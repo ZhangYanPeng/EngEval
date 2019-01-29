@@ -9,6 +9,19 @@ namespace EngEval
 {
     public partial class MainWindow : Window
     {
-        public ListeningTest ListeningTest { get; set; }
+        //正在进行的测试
+        public ListeningTest listeningTest;
+        public ListeningTest ListeningTest
+        {
+            get
+            {
+                return listeningTest;
+            }
+            set
+            {
+                listeningTest = value;
+                listeningTest.Sort();
+            }
+        }
     }
 }

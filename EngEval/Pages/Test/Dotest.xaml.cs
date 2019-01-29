@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngEval.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,13 +29,37 @@ namespace EngEval.Pages.Test
 
         private void Init(object sender, RoutedEventArgs e)
         {
-            TestProgressBar.SetProgress(1,2,16);
+            ToQuestionN(1);
+        }
+
+        public void ToQuestionN(int qn)
+        {
+            TestProgressBar.SetProgress(qn, 1, 16);
+            ExerciseDisplay.Children.Clear();
+
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            Exercise exe = mainwin.ListeningTest.parts[0].partExers[0].exercise;
+            foreach(Question que in exe.questions)
+            {
+                QuestionContent qc = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc);
+                QuestionContent qc1 = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc1);
+                QuestionContent qc2 = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc2);
+                QuestionContent qc3 = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc3);
+                QuestionContent qc4 = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc4);
+                QuestionContent qc5 = new QuestionContent(que);
+                ExerciseDisplay.Children.Add(qc5);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            TestProgressBar.SetProgress(i, i+1, 16);
+            TestProgressBar.SetProgress(i, i, 16);
         }
     }
 }
