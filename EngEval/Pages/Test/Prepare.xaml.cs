@@ -39,6 +39,7 @@ namespace EngEval.Pages.Test
             if (isLoaded)
                 return;
             isLoaded = true;
+
             //加载测试
             loadFinished(false);
             Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -51,6 +52,12 @@ namespace EngEval.Pages.Test
                 TestName.Text += test.title;
                 MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
                 mainwin.ListeningTest = test;
+                if (IsFinished(test))
+                {
+                    MessageBox.Show("您已完成所有测试！");
+                    mainwin.FrameNavigator("funclist");
+                    return;
+                }
 
                 //开启一个线程加载音频
                 Task task = new Task(() => LoadAudios(test));
@@ -61,6 +68,26 @@ namespace EngEval.Pages.Test
                 MessageBox.Show("网络错误请重试！");
                 return;
             }
+        }
+
+        //是否已经做过该测试
+        private bool IsFinished(ListeningTest test)
+        {
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("type", JsonConvert.SerializeObject(0));
+            parameters.Add("tid", test.id);
+            parameters.Add("uid", mainwin.User.id.ToString());
+            Boolean isSuccess = false;
+            while (!isSuccess)
+            {
+                string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/getStatus", parameters, ref isSuccess);
+                if (rtext == "1")
+                    return true;
+                else if((rtext == "0"))
+                    return false;
+            }
+            return false;
         }
 
         //加载所有音频
@@ -83,7 +110,18 @@ namespace EngEval.Pages.Test
                     Exercise exercise = partExer.exercise;
                     foreach(Question question in exercise.questions)
                     {
-                        while (!LoadAuido(question.audio));
+                        bool check = false;
+                        while (!check)
+                        {
+                            try
+                            {
+                                check = LoadAuido(question.audio);
+                            }
+                            catch(Exception)
+                            {
+                                check = false;
+                            }
+                        }
                         loadnum++;
                         Dispatcher.BeginInvoke(new Action(() => LoadingAudiosText.Text = string.Format("正在加载音频，请稍后...({0}/16)", loadnum)));
                     }
@@ -99,7 +137,8 @@ namespace EngEval.Pages.Test
             FileInfo[] files = root.GetFiles();
             foreach(FileInfo fi in files)
             {
-                fi.Delete();
+                if (! fi.FullName.Substring(fi.FullName.LastIndexOf(".")).Contains("ini"))
+                    fi.Delete();
             }
         }
 

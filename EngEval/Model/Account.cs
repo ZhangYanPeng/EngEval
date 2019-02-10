@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EngEval.Model
 {
+    [Serializable]
     public class Account
     {
         public long id { get; set; }
@@ -23,6 +24,7 @@ namespace EngEval.Model
         public School school { get; set; }
     }
 
+    [Serializable]
     public class EngClass
     {
         public long id { get; set; }
@@ -31,12 +33,14 @@ namespace EngEval.Model
         public University university { get; set; }
     }
 
+    [Serializable]
     public class University
     {
         public long id { get; set; }
         public string name { get; set; }
     }
 
+    [Serializable]
     public class School
     {
         public long id { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EngEval.Pages.Test;
 
 namespace EngEval.Model
 {
@@ -18,6 +19,7 @@ namespace EngEval.Model
 
 
     //测试
+    [Serializable]
     public class ListeningTest
     {
         public string id { get; set; }
@@ -45,9 +47,94 @@ namespace EngEval.Model
                 parts[i].Sort();
             }
         }
+
+
+        //获取整个Question
+        internal Question getQuestion(int qn)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i)
+                            return que;
+                    }
+                }
+            }
+            return null;
+        }
+
+        //获取整个exercise
+        internal Exercise getExercise(int qn)
+        {
+            int i = 0;
+            foreach(Part part in parts)
+            {
+                foreach(PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach(Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i)
+                            return exercise;
+                    }
+                }
+            }
+            return null;
+        }
+
+        //qn题目最后一个问题题号
+        internal int getExerciseMaxQn(int qn)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    bool check = false;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i)
+                            check = true;
+                    }
+                    if(check)
+                        return i;
+                }
+            }
+            return i;
+        }
+
+        //获取Qn题号
+        internal int getQn(Question question)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (question == que)
+                            return i;
+                    }
+                }
+            }
+            return i;
+        }
     }
-    
+
     //大题
+    [Serializable]
     public class Part
     {
         public int id { get; set; }
@@ -75,6 +162,7 @@ namespace EngEval.Model
     }
 
     //对应关系
+    [Serializable]
     public class PartExer
     {
         public int id { get; set; }
@@ -83,6 +171,7 @@ namespace EngEval.Model
     }
 
     //题目
+    [Serializable]
     public class Exercise
     {
         public string id { get; set; }
@@ -112,6 +201,7 @@ namespace EngEval.Model
     }
 
     //题目类型
+    [Serializable]
     public class Type
     {
         public int id { get; set; }
@@ -120,6 +210,7 @@ namespace EngEval.Model
     }
 
     //小题
+    [Serializable]
     public class Question
     {
         public int id { get; set; }
@@ -150,6 +241,7 @@ namespace EngEval.Model
     }
 
     //音频
+    [Serializable]
     public class Audio
     {
         public int id { get; set; }
@@ -157,6 +249,9 @@ namespace EngEval.Model
         public string src { get; set; } //Url 用此来获取音频
         public int type { get; set; }
     }
+
+    //干预
+    [Serializable]
     public class Intervention
     {
         public int id { get; set; }

@@ -65,15 +65,26 @@
     <Compile Include="AccountAction.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\DateTransform\DateTransform.cs" />
     <Compile Include="Common\Http\DownloadFile.cs" />
     <Compile Include="Common\Http\HTTPClientHelper.cs" />
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Test.cs" />
     <Compile Include="Pages\funclist.xaml.cs">
       <DependentUpon>funclist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Report\ReportList.xaml.cs">
+      <DependentUpon>ReportList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Test\Dotest.xaml.cs">
       <DependentUpon>Dotest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test\InterventionPart.xaml.cs">
+      <DependentUpon>InterventionPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test\MediaPlayerControl.xaml.cs">
+      <DependentUpon>MediaPlayerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Test\Prepare.xaml.cs">
       <DependentUpon>Prepare.xaml</DependentUpon>
@@ -85,7 +96,9 @@
       <DependentUpon>QuestionContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Setting.cs" />
-    <Compile Include="TestAction.cs" />
+    <Compile Include="TestAction.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,7 +120,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Report\ReportList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Test\Dotest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\InterventionPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\MediaPlayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +192,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TEMP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\pause.png" />
+    <Resource Include="Images\Icon\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

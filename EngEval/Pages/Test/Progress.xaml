@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EngEval.Pages.Test"
              mc:Ignorable="d" 
-             d:DesignHeight="160" d:DesignWidth="1920">
+             d:DesignHeight="200" d:DesignWidth="1400">
     <DockPanel>
-        <Border Margin="50 10 50 0" Padding="5" BorderThickness="5" CornerRadius="20" BorderBrush="DarkSeaGreen">
+        <Border Margin="50 10 50 0" Padding="5" BorderThickness="5" CornerRadius="20" BorderBrush="DarkSeaGreen" Background="DarkSeaGreen">
             <DockPanel>
+                <StackPanel Name="PartText" Height="40" DockPanel.Dock="Top" Orientation="Horizontal"></StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Name="ProgressBar" DockPanel.Dock="Top" Height="100">
                 </StackPanel>
                 <TextBlock VerticalAlignment="Center" FontSize="30" Name="ProgressInfo" ></TextBlock>

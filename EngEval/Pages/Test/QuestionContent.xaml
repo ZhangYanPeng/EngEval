@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EngEval.Pages.Test"
              mc:Ignorable="d" MaxWidth="900">
     <Grid>
-        <GroupBox  BorderBrush="LightGray" Padding="10">
+        <GroupBox Name="QCBox" BorderThickness="2" BorderBrush="LightGray" Padding="10">
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontSize="20" Text="第 "></TextBlock>
@@ -17,37 +17,44 @@
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
                     <DockPanel Margin="5">
-                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <RadioButton Name="rb_opt1" IsEnabled="True" IsChecked="False"  GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
                         <TextBlock FontSize="20" Text="A." Margin="0 0 5 0" Width="20"/>
                         <TextBlock Name="Option1" FontSize="20" TextWrapping="Wrap"></TextBlock>
                     </DockPanel>
                 </Border>
                 <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
                     <DockPanel Margin="5">
-                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <RadioButton Name="rb_opt2" IsEnabled="True" IsChecked="False"  GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
                         <TextBlock FontSize="20" Text="B." Margin="0 0 5 0" Width="20"/>
                         <TextBlock Name="Option2" FontSize="20" TextWrapping="Wrap"></TextBlock>
                     </DockPanel>
                 </Border>
                 <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
                     <DockPanel Margin="5">
-                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <RadioButton Name="rb_opt3" IsEnabled="True" IsChecked="False"  GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
                         <TextBlock FontSize="20" Text="C." Margin="0 0 5 0" Width="20"/>
                         <TextBlock Name="Option3" FontSize="20" TextWrapping="Wrap"></TextBlock>
                     </DockPanel>
                 </Border>
                 <Border BorderThickness="0 0 0 3" BorderBrush="LightSkyBlue">
                     <DockPanel Margin="5">
-                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <RadioButton Name="rb_opt4" IsEnabled="True" IsChecked="False"  GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
                         <TextBlock FontSize="20" Text="D." Margin="0 0 5 0" Width="20"/>
                         <TextBlock Name="Option4" FontSize="20" TextWrapping="Wrap"></TextBlock>
                     </DockPanel>
                 </Border>
                 <Border>
                     <DockPanel Margin="5">
-                        <RadioButton GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
+                        <RadioButton Name="rb_opt5" IsEnabled="True" IsChecked="False"  GroupName="Options" DockPanel.Dock="Left" Height="20" VerticalAlignment="Top" Margin="0 6 5 0"/>
                         <TextBlock FontSize="20" Text="E." Margin="0 0 5 0" Width="20"/>
                         <TextBlock Name="Option5" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <Border>
+                    <DockPanel Margin="5">
+                        <Button Name="Btn_Submit" FontSize="20" DockPanel.Dock="Left" Width="90" Background="LightSkyBlue" Foreground="Black" Margin="5 0 5 0" Click="Btn_Submit_Click">提交答案</Button>
+                        <Button Name="Btn_Next" FontSize="20" DockPanel.Dock="Right" Width="90" Background="LightSkyBlue" Foreground="Black" Margin="5 0 5 0" Click="Btn_Next_Click">下一题</Button>
+                        <DockPanel></DockPanel>
                     </DockPanel>
                 </Border>
             </StackPanel>

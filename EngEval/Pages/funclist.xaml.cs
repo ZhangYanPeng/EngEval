@@ -29,5 +29,11 @@ namespace EngEval.Pages
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             mainwin.FrameNavigator("Test/Prepare");
         }
+
+        private void SingleReport_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            mainwin.FrameNavigator("Report/ReportList");
+        }
     }
 }

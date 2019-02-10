@@ -5,16 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EngEval.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1920" d:DesignWidth="1080"
+      d:DesignHeight="900" d:DesignWidth="1400"
       Title="login">
     <!--登陆界面-->
 
     <Border>
         <!--界面背景-->
-        <Border.Background>
-            <ImageBrush ImageSource="../Images/log-bg.jpg"></ImageBrush>
-        </Border.Background>
-        <DockPanel HorizontalAlignment="Right" Width="900" Height="600" Background="White" Margin="0 0 100 0">
+        <DockPanel HorizontalAlignment="Right" Width="700" Height="500" Background="White" Margin="0 0 100 0">
             <Border BorderThickness="5">
                 <Border.BorderBrush>
                     <LinearGradientBrush EndPoint="0.8,1" StartPoint="0.2,0">
@@ -32,19 +29,19 @@
                 </Border.BorderBrush>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
                         <ColumnDefinition Width="200"></ColumnDefinition>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="95"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition></RowDefinition>
-                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="学号" FontSize="40" Foreground="Gray"></TextBlock>
                     <Border Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="80" Margin="20 5 20 5">

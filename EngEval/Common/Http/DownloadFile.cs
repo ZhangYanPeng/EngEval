@@ -16,7 +16,6 @@ namespace EngEval.Common.Http
             FileStream writeStream; // 写入本地文件流对象
 
             long remoteFileLength = GetHttpLength(url);// 取得远程文件长度
-            System.Console.WriteLine("remoteFileLength=" + remoteFileLength);
             if (remoteFileLength == 745)
             {
                 System.Console.WriteLine("远程文件不存在.");
@@ -60,6 +59,7 @@ namespace EngEval.Common.Http
                 long currPostion = startPosition;
                 while (contentSize > 0)// 如果读取长度大于零则继续读
                 {
+                    writeStream.Write(btArray, 0, contentSize);
                     contentSize = readStream.Read(btArray, 0, btArray.Length);// 继续向远程文件读取
                 }
 
@@ -68,7 +68,7 @@ namespace EngEval.Common.Http
                 readStream.Close();
                 flag = true;        //返回true下载成功
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 writeStream.Close();
                 flag = false;       //返回false下载失败

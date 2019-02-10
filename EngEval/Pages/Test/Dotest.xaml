@@ -5,14 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EngEval.Pages.Test"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="900" d:DesignWidth="1400"
       Title="Dotest">
 
     <DockPanel>
         <local:Progress DockPanel.Dock="Top" Height="160" x:Name="TestProgressBar"></local:Progress>
-        <Border CornerRadius="20" BorderThickness="5" BorderBrush="Wheat" Margin="50">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="800" Margin="10">
-                <WrapPanel Name="ExerciseDisplay" Height="780" Orientation="Horizontal" Width="1790">
+        <local:InterventionPart x:Name="Intertions" Height="200" DockPanel.Dock="Bottom"></local:InterventionPart>
+        
+        <Border CornerRadius="20" BorderThickness="5" BorderBrush="Wheat" Margin="50" Background="Wheat">
+            <ScrollViewer Name="ExerciseDisplayScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="10,10,10,10">
+                <WrapPanel Name="ExerciseDisplay" Margin="0 0 0 0" Orientation="Horizontal" MinWidth="1270">
                 </WrapPanel>
             </ScrollViewer>
         </Border>

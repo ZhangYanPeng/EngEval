@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EngEval.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="900" d:DesignWidth="1400"
       Title="funclist">
 
     <Grid>
@@ -23,7 +23,7 @@
                 <Image Source="../Images/Icon/test.png"></Image>
             </DockPanel>
         </Button>
-        <Button Grid.Column="0" Grid.Row="1">
+        <Button Grid.Column="0" Grid.Row="1" Click="SingleReport_Click">
             <DockPanel>
                 <TextBlock FontSize="60" HorizontalAlignment="Center" Text="单次测试报告" DockPanel.Dock="Bottom"></TextBlock>
                 <Image Source="../Images/Icon/report.png"></Image>

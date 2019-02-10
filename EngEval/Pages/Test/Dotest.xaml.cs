@@ -1,4 +1,7 @@
-﻿using EngEval.Model;
+﻿using EngEval.Common.DateTransform;
+using EngEval.Model;
+using Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,46 +23,123 @@ namespace EngEval.Pages.Test
     /// </summary>
     public partial class Dotest : Page
     {
-        int i = 1;
+        public Exercise currentExercise { get; set; }
+        public Question currentQuestion { get; set; }
+        public int currentQn { get; set; }
+        public Answer answer { get; set; }
+
         public Dotest()
         {
             InitializeComponent();
             Loaded += new RoutedEventHandler(Init);
+            answer = new Answer();
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            answer.account = mainwin.User;
+            answer.test = mainwin.ListeningTest;
         }
 
         private void Init(object sender, RoutedEventArgs e)
         {
-            ToQuestionN(1);
+            Answer anstemp = new Answer();
+            anstemp = anstemp.LoadAnswer();
+            if( anstemp!=null && anstemp.account.id == answer.account.id && anstemp.test.id == answer.test.id)
+            {
+                //之前中断过
+                answer = anstemp;
+                currentQn = answer.records.Count;
+            }
+            else {
+                currentQn = 0;
+                answer.start_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
+            }
+            ToNextQue();
         }
 
+        //进入下一题
+        internal void ToNextQue(Record record = null)
+        {
+            if(record != null)
+            {
+                //记录当前答案
+                SubmitTmp(record);
+            }
+            Intertions.SetIntervention(null);
+            ToQuestionN(currentQn + 1);
+            currentQn++;
+        }
+
+        private void SubmitTmp(Record record)
+        {
+            answer.records.Add(record);
+            answer.SaveLocal();
+        }
+
+        //加载第qn题目
         public void ToQuestionN(int qn)
         {
-            TestProgressBar.SetProgress(qn, 1, 16);
-            ExerciseDisplay.Children.Clear();
-
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
-            Exercise exe = mainwin.ListeningTest.parts[0].partExers[0].exercise;
-            foreach(Question que in exe.questions)
+            TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
+
+            Exercise exercise = mainwin.ListeningTest.getExercise(qn);
+            currentQuestion = mainwin.ListeningTest.getQuestion(qn);
+            // 判断试题结束
+            if (exercise == null)
             {
-                QuestionContent qc = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc);
-                QuestionContent qc1 = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc1);
-                QuestionContent qc2 = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc2);
-                QuestionContent qc3 = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc3);
-                QuestionContent qc4 = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc4);
-                QuestionContent qc5 = new QuestionContent(que);
-                ExerciseDisplay.Children.Add(qc5);
+                //提交试题答题记录
+                answer.end_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
+                Dictionary<string, string> parameters = answer.GetParamUpload();
+                bool substate = false;
+                while (!substate)
+                {
+                    substate = SubmitAnswer(parameters);
+                }
+                MessageBox.Show("恭喜您！已经完成测试！");
+                mainwin.FrameNavigator("funclist");
+                return;
+            }
+            
+            //展示exercise
+            if(currentExercise != exercise)
+            {
+                currentExercise = exercise;
+                //清空显示区域
+                ExerciseDisplay.Children.Clear();
+                for (int i=0; i < currentExercise.questions.Length; i++){
+                    QuestionContent questionContent = new QuestionContent(currentExercise.questions[i], mainwin.ListeningTest.getQn(currentExercise.questions[i]), this);
+                    ExerciseDisplay.Children.Add(questionContent);
+                }
+            }
+
+            //设定当前题目
+            foreach(QuestionContent qc in ExerciseDisplay.Children)
+            {
+                if (qc.question == currentQuestion)
+                {
+                    qc.Active();
+                }
+                else
+                {
+                    qc.DeActive();
+                }
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //提交答案
+        private bool SubmitAnswer(Dictionary<string, string> parameters)
         {
-            i++;
-            TestProgressBar.SetProgress(i, i, 16);
+            Boolean isSuccess = false;
+            string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/finishTest", parameters, ref isSuccess);
+            return isSuccess;
+        }
+
+        internal void InterShow(Intervention inter)
+        {
+            Intertions.SetIntervention(inter);
+        }
+
+        internal void InterShowAll()
+        {
+            Intertions.SetInterventions(currentQuestion.interventions);
         }
     }
 }

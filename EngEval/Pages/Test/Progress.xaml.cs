@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngEval.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,12 +42,43 @@ namespace EngEval.Pages.Test
                     tmp += "、";
             }
             ProgressInfo.Text = String.Format("本套测试一共含{0}个小题，您现在位于第{1}小题。", total, tmp);
+            //更新大题部分
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            int pi = 0;
+            foreach(Part part in mainwin.ListeningTest.parts)
+            {
+                string str = part.partExers[0].exercise.type.name;
+                int qn = 0;
+                foreach (PartExer pe in part.partExers)
+                {
+                    qn += pe.exercise.questions.Length;
+                }
+
+                Border border = new Border();
+                border.Width = qn * 60;
+                if(pi == 0)
+                    border.BorderThickness = new Thickness(10, 0, 5, 0);
+                else if(pi == mainwin.ListeningTest.parts.Length-1)
+                    border.BorderThickness = new Thickness(5, 0, 10, 0);
+                else
+                    border.BorderThickness = new Thickness(5, 0, 5, 0);
+                border.BorderBrush = Brushes.Black;
+                TextBlock text = new TextBlock();
+                text.Text = str;
+                text.TextAlignment = TextAlignment.Center;
+                text.VerticalAlignment = VerticalAlignment.Center;
+                text.FontSize = 10;
+                border.Child = text;
+                PartText.Children.Add(border);
+                pi++;
+            }
+
             int num = 1;
             while(num <= total)
             {
                 //题号
                 TextBlock textBlock = new TextBlock();
-                textBlock.Text = (num + 1).ToString();
+                textBlock.Text = (num).ToString();
                 textBlock.FontSize = 30;
                 textBlock.TextAlignment = TextAlignment.Center;
                 textBlock.VerticalAlignment = VerticalAlignment.Center;
