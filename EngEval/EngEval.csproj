@@ -74,6 +74,15 @@
     <Compile Include="Pages\funclist.xaml.cs">
       <DependentUpon>funclist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Questionarie\Information.xaml.cs">
+      <DependentUpon>Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Questionarie\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Questionarie\TestQuestionaire.xaml.cs">
+      <DependentUpon>TestQuestionaire.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Report\ReportList.xaml.cs">
       <DependentUpon>ReportList.xaml</DependentUpon>
     </Compile>
@@ -117,6 +126,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Questionarie\Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Questionarie\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Questionarie\TestQuestionaire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
