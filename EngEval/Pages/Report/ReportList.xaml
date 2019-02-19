@@ -14,7 +14,7 @@
                     <DataTemplate>
                         <DockPanel>
                             <Button FontSize="20" Content="查看报告"></Button>
-                            <TextBlock FontSize="20" Text></TextBlock>
+                            <TextBlock FontSize="20" Text="{Binding .}"></TextBlock>
                         </DockPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
