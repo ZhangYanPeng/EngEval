@@ -32,7 +32,7 @@ namespace EngEval.Common.Http
                 {
                     System.Console.WriteLine("本地文件长度" + startPosition + "已经大于等于远程文件长度" + remoteFileLength);
                     writeStream.Close();
-                    return false;
+                    return true;
                 }
                 else
                 {

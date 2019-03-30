@@ -18,6 +18,7 @@
         <DockPanel Width="1400" Height="900">
             <DockPanel DockPanel.Dock="Top" Height="100" Visibility="Collapsed" Background="#FF35496A" Name="TopBar">
                 <Button DockPanel.Dock="Right" FontSize="40" Foreground="White" Width="150" Background="#FF35496A" Click="Quit_Click">退出</Button>
+                <Button DockPanel.Dock="Right" FontSize="40" Foreground="White" Width="150" Background="#FF35496A" Click="Logout_Click">注销</Button>
                 <DockPanel VerticalAlignment="Center" Margin="100 0 0 0">
                     <TextBlock Text="您好！" FontSize="40" Foreground="White" ></TextBlock>
                     <TextBlock Name="USER_NAME" Text="XXXX" FontSize="40" Foreground="White" ></TextBlock>

@@ -36,6 +36,9 @@ namespace EngEval.Pages.Test
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             answer.account = mainwin.User;
             answer.test = mainwin.ListeningTest;
+
+            SysVolumeBar.Value = Setting.SYSTEM_VOLUME;
+            SysVolumeText.Text = ((int)(Setting.SYSTEM_VOLUME * 100)).ToString() + "%";
         }
 
         private void Init(object sender, RoutedEventArgs e)
@@ -78,7 +81,6 @@ namespace EngEval.Pages.Test
         public void ToQuestionN(int qn)
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
-            TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
 
             Exercise exercise = mainwin.ListeningTest.getExercise(qn);
             currentQuestion = mainwin.ListeningTest.getQuestion(qn);
@@ -97,9 +99,10 @@ namespace EngEval.Pages.Test
                 mainwin.FrameNavigator("funclist");
                 return;
             }
-            
+            TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
+
             //展示exercise
-            if(currentExercise != exercise)
+            if (currentExercise != exercise)
             {
                 currentExercise = exercise;
                 //清空显示区域
@@ -140,6 +143,17 @@ namespace EngEval.Pages.Test
         internal void InterShowAll()
         {
             Intertions.SetInterventions(currentQuestion.interventions);
+        }
+
+        private void SysVolumeBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Setting.SYSTEM_VOLUME = SysVolumeBar.Value;
+            SysVolumeText.Text = ((int)(SysVolumeBar.Value * 100)).ToString() +"%";
+            foreach (QuestionContent qc in ExerciseDisplay.Children)
+            {
+                qc.mediaPlayer.Volume = SysVolumeBar.Value;
+                Intertions.Inter_Audio.Audio.Volume = SysVolumeBar.Value;
+            }
         }
     }
 }

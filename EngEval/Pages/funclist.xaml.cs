@@ -1,16 +1,8 @@
-﻿using System;
+﻿using Http;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EngEval.Pages
 {
@@ -34,6 +26,23 @@ namespace EngEval.Pages
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             mainwin.FrameNavigator("Report/ReportList");
+        }
+
+        private void OverallReport_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            //ReportQRCode page = new ReportQRCode(mainwin.User.id.ToString(),1);
+            //mainwin.frmMain.Content = page;
+            string strCode = Setting.BASE_URL + "pdf/";
+            Boolean isSuccess = false;
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("uid", mainwin.User.id.ToString());
+            string url = Setting.BASE_URL + "test/getOverallReport";
+            string rtext = HttpRequestHelper.HttpGet(url, parameters, ref isSuccess);
+            strCode += mainwin.User.id + "overall.pdf";
+
+            url = strCode;
+            System.Diagnostics.Process.Start(strCode);
         }
     }
 }

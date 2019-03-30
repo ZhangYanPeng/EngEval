@@ -29,6 +29,7 @@ namespace EngEval.Pages.Test
             Btn_Play.Visibility = Visibility.Visible;
             Btn_Play.IsEnabled = false;
             Btn_Pause.Visibility = Visibility.Collapsed;
+            Audio.Volume = Setting.SYSTEM_VOLUME;
         }
 
         //设置音频源

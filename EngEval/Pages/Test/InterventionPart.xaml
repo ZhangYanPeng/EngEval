@@ -12,7 +12,9 @@
                 <Button Name="ForInter" Width="40" DockPanel.Dock="Left" FontSize="40" Content="&lt;" Margin="10 0 0 0" Background="LightSkyBlue" Click="ForInter_Click"></Button>
                 <Button Name="BelInter" Width="40" DockPanel.Dock="Right" FontSize="40" Content="&gt;" Margin="0 0 10 0" Background="LightSkyBlue" Click="BelInter_Click"> </Button>
                 <local:MediaPlayerControl x:Name="Inter_Audio" Height="30" DockPanel.Dock="Top"></local:MediaPlayerControl>
-                <TextBlock Name="Inter_Text" TextWrapping="Wrap" FontSize="20" Foreground="Black"></TextBlock>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="Inter_Text" TextWrapping="Wrap" FontSize="20" Foreground="Black"></TextBlock>
+                </ScrollViewer>
             </DockPanel>
         </Border>
     </DockPanel>

@@ -46,53 +46,15 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="学号" FontSize="40" Foreground="Gray"></TextBlock>
                     <Border Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="80" Margin="20 5 20 5">
                         <TextBox Name="Username" FontSize="40" Foreground="Gray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center">
-                            <TextBox.Resources>
-                                <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
-                                    <VisualBrush.Visual>
-                                        <TextBlock FontStyle="Italic" FontSize="40" Foreground="Gray" Text="请输入学号"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </TextBox.Resources>
-                            <TextBox.Style>
-                                <Style TargetType="TextBox">
-                                    <Style.Triggers>
-                                        <Trigger Property="Text" Value="{x:Null}">
-                                            <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                        </Trigger>
-                                        <Trigger Property="Text" Value="">
-                                            <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBox.Style>
                         </TextBox>
                     </Border>
                     <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="密码" FontSize="40" Foreground="Gray"></TextBlock>
                     <Border Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="80" Margin="20 5 20 5">
-                        <TextBox Name="Password" FontSize="40" Foreground="Gray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center">
-                            <TextBox.Resources>
-                                <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
-                                    <VisualBrush.Visual>
-                                        <TextBlock FontStyle="Italic" FontSize="40" Foreground="Gray" Text="请输入密码"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </TextBox.Resources>
-                            <TextBox.Style>
-                                <Style TargetType="TextBox">
-                                    <Style.Triggers>
-                                        <Trigger Property="Text" Value="{x:Null}">
-                                            <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                        </Trigger>
-                                        <Trigger Property="Text" Value="">
-                                            <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBox.Style>
-                        </TextBox>
+                        <PasswordBox Name="Password" FontSize="40" Foreground="Gray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center">
+                        </PasswordBox>
                     </Border>
                     <Button Click="Login_Click" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Content="登陆" Margin="20 10 20 10" FontSize="40" Foreground="DarkSlateGray" Background="Wheat"></Button>
-                    <Button Grid.Column="3" Grid.Row="4" Content="注册" Margin="20 10 20 10" FontSize="40" Foreground="DarkSlateGray" Background="Wheat"></Button>
+                    <Button Click="Register_Click" Grid.Column="3" Grid.Row="4" Content="注册" Margin="20 10 20 10" FontSize="40" Foreground="DarkSlateGray" Background="Wheat"></Button>
                 </Grid>
             </Border>
         </DockPanel>

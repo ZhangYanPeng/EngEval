@@ -8,17 +8,23 @@
       d:DesignHeight="900" d:DesignWidth="1400"
       Title="ReportList">
     <DockPanel>
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">
-            <ListBox HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel>
-                            <Button FontSize="20" Content="查看报告"></Button>
-                            <TextBlock FontSize="20" Text="{Binding .}"></TextBlock>
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+        <Button Background="Transparent" DockPanel.Dock="Bottom" FontSize="40" Foreground="Black" Click="Back_Click"> 返回首页</Button>
+        <GroupBox>
+            <GroupBox.Header>
+                <TextBlock FontSize="30" Text="已经完成的测试"></TextBlock>
+            </GroupBox.Header>
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                <ListBox Name="TestList" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Button DataContext="{Binding .}" FontSize="30" Width="200" Background="#FF35496A" Content="查看报告" DockPanel.Dock="Right" Foreground="White" Click="SingleReport_Click"></Button>
+                                <TextBlock FontSize="30" Text="{Binding title}"></TextBlock>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </GroupBox>
     </DockPanel>
 </Page>

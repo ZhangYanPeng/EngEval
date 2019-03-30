@@ -5,8 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EngEval.Pages.Questionarie"
         mc:Ignorable="d"
-        Title="Register" Height="300" Width="300">
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        Title="注册" Height="650" Width="900">
     <Grid>
-        
+        <GroupBox>
+            <GroupBox.Header>
+                <TextBlock FontSize="35">新用户注册</TextBlock>
+            </GroupBox.Header>
+            <DockPanel>
+                <Grid DockPanel.Dock="Bottom" Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Background="DeepSkyBlue" FontSize="25" Foreground="White" Margin="10" Height="50" Click="Register_Click">注册</Button>
+                    <Button Grid.Column="1" Background="DeepSkyBlue" FontSize="25" Foreground="White" Margin="10" Height="50" Click="Back_Click">返回</Button>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="1" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <ComboBox Name="School" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left" Text="{Binding name}">
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <ComboBox Name="Major" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <ComboBoxItem>
+                                <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">理科</TextBlock>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">工科</TextBlock>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">文科</TextBlock>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+
+                    <Border Grid.Row="3" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <DockPanel>
+                            <ComboBox Name="ClassFor"  DockPanel.Dock="Left" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalContentAlignment="Center" Width="150" HorizontalContentAlignment="Stretch">
+                                <ComboBoxItem>
+                                    <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">A</TextBlock>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">B</TextBlock>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    <TextBlock HorizontalAlignment="Stretch" Margin="30 0 0 0" Foreground="Gray" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">C</TextBlock>
+                                </ComboBoxItem>
+                            </ComboBox>
+                            <TextBox  Margin="10 0 0 0" Background="#FFECECEC"  Name="ClassBack" Text="" Foreground="Gray" FontSize="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Left"></TextBox>
+                        </DockPanel>
+                    </Border>
+                    
+                    <Border Grid.Row="4" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <DockPanel>
+                            <TextBox Background="#FFECECEC" Name="StuNo" Margin="30 0 0 0" Text="" Foreground="Gray" FontSize="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Left"></TextBox>
+                        </DockPanel>
+                    </Border>
+
+                    <Border Grid.Row="5" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <DockPanel>
+                            <TextBox Background="#FFECECEC" Name="StuName" Margin="30 0 0 0" Text="" Foreground="Gray" FontSize="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Left"></TextBox>
+                        </DockPanel>
+                    </Border>
+
+                    <Border Grid.Row="6" Grid.Column="2"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <DockPanel>
+                            <TextBox Background="#FFECECEC" Name="Password" Margin="30 0 0 0" Text="" Foreground="Gray" FontSize="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Left"></TextBox>
+                        </DockPanel>
+                    </Border>
+
+                    <Border Grid.Row="7" Grid.Column="2"  BorderThickness="0 2 0 2" BorderBrush="Gray">
+                        <DockPanel>
+                            <TextBox Background="#FFECECEC" Name="RePassword" Margin="30 0 0 0" Text="" Foreground="Gray" FontSize="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Left"></TextBox>
+                        </DockPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Text="学校" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Text="学科" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Grid.Row="3" Grid.Column="1" Text="英语班级" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Grid.Row="4" Grid.Column="1" Text="学号" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Grid.Row="5" Grid.Column="1" Text="姓名" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1"  BorderThickness="0 2 0 0" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Grid.Row="6" Grid.Column="1" Text="密码" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1"  BorderThickness="0 2 0 2" BorderBrush="Gray">
+                        <TextBlock Margin="30 0 0 0" Grid.Row="7" Grid.Column="1" Text="确认密码" Foreground="Gray" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                </Grid>
+            </DockPanel>
+        </GroupBox>
     </Grid>
 </Window>

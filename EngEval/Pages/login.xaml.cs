@@ -1,4 +1,5 @@
 ﻿using EngEval.Model;
+using EngEval.Pages.Questionarie;
 using Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -33,7 +34,7 @@ namespace EngEval.Pages
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
-            string password = Password.Text;
+            string password = Password.Password;
             if (username == null || username.Length == 0)
             {
                 MessageBox.Show("学号不能为空！");
@@ -64,6 +65,11 @@ namespace EngEval.Pages
                     MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
                     mainwin.FrameNavigator("funclist");
                     mainwin.User = user;
+                    if(user.questionaire == null)
+                    {
+                        Information information = new Information();
+                        information.ShowDialog();
+                    }
                 }
             }
             else
@@ -71,6 +77,12 @@ namespace EngEval.Pages
                 MessageBox.Show("网络错误请重试！");
                 return;
             }
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Register registerWindow = new Register();
+            registerWindow.ShowDialog();
         }
     }
 }

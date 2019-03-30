@@ -5,8 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EngEval.Pages.Questionarie"
         mc:Ignorable="d"
-        Title="Information" Height="300" Width="300">
-    <Grid>
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        Title="注册问卷" Height="500" Width="700">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Height="60" VerticalAlignment="Center">
+            <TextBlock TextAlignment="Center" FontSize="35"  Height="40">请您先完善一下个人信息</TextBlock>
+        </Border>
         
-    </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="20">
+            <DockPanel Width="660">
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">你学习英语有多长时间了？</TextBlock>
+                        <ComboBox FontSize="20" Height="30" Name="Q1">
+                            <ComboBoxItem FontSize="20">A: 1-4年</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 5-8年</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">C: 9-12年</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">D: 13-16年</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">你对英语感兴趣的程度？</TextBlock>
+                        <ComboBox FontSize="20" Height="30" Name="Q2">
+                            <ComboBoxItem FontSize="20">A: 非常不感兴趣</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 不感兴趣</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">C: 一般兴趣</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">D: 较感兴趣</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">E: 非常感兴趣</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">进入大学后，你所在的学校是否有开设专门的英语听力课程？</TextBlock>
+                        <ComboBox FontSize="20" Height="30" Name="Q3" SelectionChanged="Q3_SelectionChanged">
+                            <ComboBoxItem FontSize="20">A: 有</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 无</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top" Visibility="Collapsed" Name="Q3_1Part">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">所开设课程名称是：</TextBlock>
+                        <TextBox FontSize="20" Height="30" VerticalAlignment="Center" TextAlignment="Left" Name="Q3_1"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top" Visibility="Collapsed" Name="Q3_2Part">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">每周开设几节课听力课程？</TextBlock>
+                        <TextBox FontSize="20" Height="30" VerticalAlignment="Center" TextAlignment="Left" Name="Q3_2"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">你每周接触英语听力的时间是多久？（包括做听力练习、听英语电台、英语新闻、看英/美剧等的时间）</TextBlock>
+                        <ComboBox FontSize="20" Height="30" Name="Q4">
+                            <ComboBoxItem FontSize="20">A: 0-2小时</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 2-4小时</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">C: 4-6小时</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">D: 6-8小时</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">E: 8小时以上</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">你最喜欢的练习英语听力的方式是什么？</TextBlock>
+                        <ComboBox FontSize="20" Height="30" DockPanel.Dock="Top" Name="Q5" SelectionChanged="Q5_SelectionChanged">
+                            <ComboBoxItem FontSize="20">A: 看英语新闻</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 看英/美剧</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">C: 听英文歌</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">D: 实战做题</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">E: 以上都不是</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox Name="Q5_1" FontSize="20" Height="30" VerticalAlignment="Center" TextAlignment="Left" Visibility="Collapsed" Text="我最喜欢的英语听力练习方式（自由填写）"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 0" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <TextBlock Width="300" TextWrapping="Wrap" FontSize="20" DockPanel.Dock="Left">你认为你目前的英语听力能力处于什么水平？</TextBlock>
+                        <ComboBox FontSize="20" Height="30" Name="Q6">
+                            <ComboBoxItem FontSize="20">A: 初级：能够进行简单地对话和看懂简单的英文篇章</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">B: 中级：能够较熟练地进行流利的口语交流并具备一定的听说读写能力</ComboBoxItem>
+                            <ComboBoxItem FontSize="20">C: 高级：能够进行流利的口语交流并具备扎实的听说读写能力</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+                </Border>
+                <Border BorderThickness="0 2 0 2" BorderBrush="Gray" DockPanel.Dock="Top">
+                    <Button Background="DeepSkyBlue" FontSize="20" Foreground="White" Margin="10" Height="40" Width="300" Click="Submit_Click">提交问卷</Button>
+                </Border>
+                <DockPanel/>
+            </DockPanel>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

@@ -45,7 +45,8 @@ namespace EngEval.Pages.Test
             //更新大题部分
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             int pi = 0;
-            foreach(Part part in mainwin.ListeningTest.parts)
+            PartText.Children.Clear();
+            foreach (Part part in mainwin.ListeningTest.parts)
             {
                 string str = part.partExers[0].exercise.type.name;
                 int qn = 0;
@@ -67,7 +68,16 @@ namespace EngEval.Pages.Test
                 text.Text = str;
                 text.TextAlignment = TextAlignment.Center;
                 text.VerticalAlignment = VerticalAlignment.Center;
-                text.FontSize = 10;
+                text.FontSize = 20;
+                //设置颜色
+                switch (pi)
+                {
+                    case 0: text.Foreground = new SolidColorBrush(Color.FromRgb(255, 193, 25));break;
+                    case 1: text.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 238)); break;
+                    case 2: text.Foreground = new SolidColorBrush(Color.FromRgb(220, 14, 60)); break;
+                    default: text.Foreground = Brushes.Black;break;
+                }
+
                 border.Child = text;
                 PartText.Children.Add(border);
                 pi++;
@@ -85,7 +95,7 @@ namespace EngEval.Pages.Test
 
                 Border border = new Border();
                 border.Width = 50;
-                border.Height = 80;
+                border.Height = 50;
                 border.CornerRadius = new CornerRadius(10);
                 border.BorderThickness = new Thickness(5);
                 border.Margin = new Thickness(5, 5, 5, 5);

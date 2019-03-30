@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +25,7 @@ namespace EngEval.Pages.Test
     {
         public Question question { get; set; }
         public Dotest parentPage { get; set; }
-        MediaPlayer mediaPlayer { get; set; }
+        public MediaPlayer mediaPlayer { get; set; }
         Record record { get; set; } //当前题目答题情况
         bool actived = false;
 
@@ -64,19 +66,32 @@ namespace EngEval.Pages.Test
         {
             actived = true;
             Btn_Submit.Visibility = Visibility.Visible;
-            //Btn_Submit.IsEnabled = false;
-            Btn_Submit.IsEnabled = true;
+            Btn_Submit.IsEnabled = false;
             Btn_Next.Visibility = Visibility.Collapsed;
             record.start_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
             QCBox.BorderBrush = Brushes.ForestGreen;
             QCBox.BorderThickness = new Thickness(5);
+            //CanAnswer();
 
-            //播放当前题目音频
+             //播放当前题目音频
             mediaPlayer = new MediaPlayer();
             string audios_path = "TEMP/" + question.audio.src.Substring(question.audio.src.LastIndexOf("/"));
             mediaPlayer.Open(new Uri(audios_path, UriKind.Relative));
             mediaPlayer.MediaEnded += Player_MediaEnded;
-            mediaPlayer.Volume = 1;
+            mediaPlayer.Volume = Setting.SYSTEM_VOLUME;
+
+            Task t = new Task(() =>
+            {
+                //模拟工作过程
+                Thread.Sleep(10000);
+                Action PlaySoundAction = new Action(PlaySound);
+                Dispatcher.BeginInvoke(PlaySoundAction);
+            });
+            t.Start();
+        }
+
+        private void PlaySound()
+        {
             mediaPlayer.Play();
         }
 
