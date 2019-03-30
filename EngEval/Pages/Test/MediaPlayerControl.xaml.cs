@@ -50,7 +50,14 @@ namespace EngEval.Pages.Test
         private void Audio_MediaOpened(object sender, RoutedEventArgs e)
         {
             Audio.Pause();
-            Progress_Bar.Maximum = Audio.NaturalDuration.TimeSpan.TotalSeconds;
+            try
+            {
+                Progress_Bar.Maximum = Audio.NaturalDuration.TimeSpan.TotalSeconds;
+            }
+            catch (Exception exp)
+            {
+                Progress_Bar.Maximum = 100;
+            }
             Btn_Play.IsEnabled = true;
             SetProgressBar();
         }
@@ -71,14 +78,20 @@ namespace EngEval.Pages.Test
         //更新播放进度
         private void timer_tick(object sender, EventArgs e)
         {
-            SetProgressBar();
+            try
+            {
+                SetProgressBar();
+            }catch(Exception exp)
+            {
+                return;
+            }
         }
 
         private void SetProgressBar()
         {
-            Progress_Bar.Value = Audio.Position.TotalSeconds;
             try
             {
+                Progress_Bar.Value = Audio.Position.TotalSeconds;
                 Progress_Text.Text = formatTimeSpan(Audio.Position.ToString()) + " / " + formatTimeSpan(Audio.NaturalDuration.TimeSpan.ToString());
             }
             catch(Exception e)
@@ -89,7 +102,14 @@ namespace EngEval.Pages.Test
 
         private string formatTimeSpan(string str)
         {
-            return str.Substring(0, str.LastIndexOf(":") + 3 );
+            try
+            {
+                return str.Substring(0, str.LastIndexOf(":") + 3);
+            }
+            catch (Exception exp)
+            {
+                return "";
+            }
         }
 
         //暂停音频
@@ -112,7 +132,13 @@ namespace EngEval.Pages.Test
         //拖动进度条
         private void Progress_Bar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Audio.Position = TimeSpan.FromSeconds(Progress_Bar.Value);
+            try
+            {
+                Audio.Position = TimeSpan.FromSeconds(Progress_Bar.Value);
+            }catch(Exception exp)
+            {
+                Audio.Position = TimeSpan.Zero;
+            }
         }
     }
 }
