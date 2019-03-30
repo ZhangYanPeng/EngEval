@@ -91,7 +91,7 @@ namespace EngEval.Pages.Test
                 SetIntervention(internum-1);
         }
 
-        //h后一干预
+        //后一干预
         private void BelInter_Click(object sender, RoutedEventArgs e)
         {
             if (internum <3)
