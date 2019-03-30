@@ -77,7 +77,14 @@ namespace EngEval.Pages.Test
         private void SetProgressBar()
         {
             Progress_Bar.Value = Audio.Position.TotalSeconds;
-            Progress_Text.Text = formatTimeSpan(Audio.Position.ToString()) + " / "+ formatTimeSpan(Audio.NaturalDuration.TimeSpan.ToString()) ;
+            try
+            {
+                Progress_Text.Text = formatTimeSpan(Audio.Position.ToString()) + " / " + formatTimeSpan(Audio.NaturalDuration.TimeSpan.ToString());
+            }
+            catch(Exception e)
+            {
+                Progress_Text.Text = ".../...";
+            }
         }
 
         private string formatTimeSpan(string str)
