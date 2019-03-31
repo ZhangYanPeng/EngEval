@@ -138,7 +138,16 @@ namespace EngEval.Pages.Test
             foreach(FileInfo fi in files)
             {
                 if (! fi.FullName.Substring(fi.FullName.LastIndexOf(".")).Contains("ini"))
-                    fi.Delete();
+                {
+                    try
+                    {
+                        fi.Delete();
+                    }catch(Exception exp)
+                    {
+                        continue;
+                    }
+
+                }
             }
         }
 

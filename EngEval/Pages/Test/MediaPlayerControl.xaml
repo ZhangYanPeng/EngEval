@@ -14,7 +14,7 @@
         <Button Name="Btn_Pause" DockPanel.Dock="Left" Click="Btn_Pause_Click">
             <Image Source="/EngEval;component/Images/Icon/pause.png"></Image>
         </Button>
-        <TextBlock Name="Progress_Text" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="0 0 20 0">音频加载中...</TextBlock>
+        <TextBlock Name="Progress_Text" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="0 0 20 0">../..</TextBlock>
         <Slider Name="Progress_Bar" Margin="20 0 20 0" VerticalAlignment="Center" ValueChanged="Progress_Bar_ValueChanged"></Slider>
     </DockPanel>
 </UserControl>

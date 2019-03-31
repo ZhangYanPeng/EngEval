@@ -62,7 +62,7 @@ namespace EngEval.Pages.Test
         }
 
         //当前题目激活
-        internal void Active()
+        internal void Active( int timeRemain)
         {
             actived = true;
             Btn_Submit.Visibility = Visibility.Visible;
@@ -71,7 +71,7 @@ namespace EngEval.Pages.Test
             record.start_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
             QCBox.BorderBrush = Brushes.ForestGreen;
             QCBox.BorderThickness = new Thickness(5);
-            CanAnswer();
+            //CanAnswer();
 
              //播放当前题目音频
             mediaPlayer = new MediaPlayer();
@@ -83,7 +83,7 @@ namespace EngEval.Pages.Test
             Task t = new Task(() =>
             {
                 //模拟工作过程
-                Thread.Sleep(10000);
+                Thread.Sleep(1000* timeRemain);
                 Action PlaySoundAction = new Action(PlaySound);
                 Dispatcher.BeginInvoke(PlaySoundAction);
             });

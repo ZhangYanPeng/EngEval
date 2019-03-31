@@ -107,7 +107,7 @@ namespace EngEval.Model
             stream.Close();
 
             //创建文件
-            string path = "TEMP/PROCESS.ini";
+            string path = "TEMP/"+ test.testno.ToString() + "PROCESS.ini";
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             BinaryWriter bw = new BinaryWriter(fs);
             bw.Write(data);
@@ -119,7 +119,7 @@ namespace EngEval.Model
         public Answer LoadAnswer()
         {
             //打开文件
-            string path = "TEMP/PROCESS.ini";
+            string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
             FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read, 4 * 1024 * 1024, true);
             BinaryFormatter bf = new BinaryFormatter();
             try

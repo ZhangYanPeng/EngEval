@@ -34,11 +34,12 @@ namespace EngEval.Model
         //对题目进行排序
         public void Sort()
         {
-            for(int i=0; i<parts.Length; i++)
+            for (int i = 0; i < parts.Length; i++)
             {
-                for(int j=i; j<parts.Length; j++)
+                for (int j = i; j < parts.Length; j++)
                 {
-                    if (parts[j].p_no == i) { 
+                    if (parts[j].p_no == i)
+                    {
                         Sorter.SwitchObj(parts, i, j);
                         break;
                     }
@@ -69,16 +70,47 @@ namespace EngEval.Model
             return null;
         }
 
+        //判断是否是part第一题，确定等待时间
+        internal int timeRemain(int qn)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i)
+                        {
+                            if (exercise.questions.Length <= 1)
+                                return 10;
+                            if (que.q_num == 0)
+                            {
+                                return exercise.questions.Length * 5;
+                            }
+                            else
+                            {
+                                return 5;
+                            }
+                        }
+                    }
+                }
+            }
+            return 10;
+        }
+
         //获取整个exercise
         internal Exercise getExercise(int qn)
         {
             int i = 0;
-            foreach(Part part in parts)
+            foreach (Part part in parts)
             {
-                foreach(PartExer pe in part.partExers)
+                foreach (PartExer pe in part.partExers)
                 {
                     Exercise exercise = pe.exercise;
-                    foreach(Question que in exercise.questions)
+                    foreach (Question que in exercise.questions)
                     {
                         i++;
                         if (qn == i)
@@ -105,7 +137,7 @@ namespace EngEval.Model
                         if (qn == i)
                             check = true;
                     }
-                    if(check)
+                    if (check)
                         return i;
                 }
             }

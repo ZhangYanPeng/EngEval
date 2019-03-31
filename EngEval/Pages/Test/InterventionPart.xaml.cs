@@ -45,6 +45,7 @@ namespace EngEval.Pages.Test
             Inter_Text.Text = intervention.text;
             if(intervention.audio != null)
             {
+
                 string audios_path = Setting.SEVER_URL + intervention.audio.src;
                 Inter_Audio.SetAuido(audios_path);
             }

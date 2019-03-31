@@ -77,30 +77,43 @@ namespace EngEval.Pages.Report
 
         private void ReporterViewer_Loaded(object sender, RoutedEventArgs e)
         {
-            string BaseDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
-            if (Directory.Exists("TEMP/") == false)//如果不存在就创建file文件夹 
-            {
-                Directory.CreateDirectory("TEMP/");
+            try { 
+                string BaseDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
+                if (Directory.Exists("TEMP/") == false)//如果不存在就创建file文件夹 
+                {
+                    Directory.CreateDirectory("TEMP/");
+                }
+                if (File.Exists(BaseDirectoryPath + "TEMP\\" + url.Substring(url.LastIndexOf("/")+1) + "Reporter.pdf"))
+                {
+                    FileInfo fi = new FileInfo(BaseDirectoryPath + "TEMP\\" + url.Substring(url.LastIndexOf("/") + 1) + "Reporter.pdf");
+                    fi.Attributes = FileAttributes.Normal;
+                    fi.IsReadOnly = false;
+                    fi.Delete();
+                }
+                bool check = false;
+                while (!check)
+                {
+                    check = DownloadFile.Download(url, "TEMP/" + url.Substring(url.LastIndexOf("/") + 1) + "Reporter.pdf");
+                }
+                ReporterViewer.LoadFile(BaseDirectoryPath + "/TEMP/" + url.Substring(url.LastIndexOf("/") + 1) + "Reporter.pdf");
             }
-            if (File.Exists(BaseDirectoryPath + "TEMP\\" + "Reporter.pdf"))
+            catch(Exception exp)
             {
-                FileInfo fi = new FileInfo(BaseDirectoryPath + "TEMP\\" + "Reporter.pdf");
-                fi.Attributes = FileAttributes.Normal;
-                fi.IsReadOnly = false;
-                fi.Delete();
+                MessageBox.Show("文件操作异常，可能文件已经打开，请检查确认！");
+                return;
             }
-            bool check = false;
-            while (!check)
-            {
-                check = DownloadFile.Download(url, "TEMP/" + "Reporter.pdf");
-            }
-            ReporterViewer.LoadFile(BaseDirectoryPath + "/TEMP/" + "Reporter.pdf");
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             mainwin.FrameNavigator("funclist");
+        }
+
+        private void LoadReportUrl(object sender, RoutedEventArgs e)
+        {
+            //hyperlink.NavigateUri = url;
+            System.Diagnostics.Process.Start(url);
         }
     }
 }

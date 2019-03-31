@@ -84,5 +84,7 @@ namespace EngEval.Pages
             Register registerWindow = new Register();
             registerWindow.ShowDialog();
         }
+
+        
     }
 }

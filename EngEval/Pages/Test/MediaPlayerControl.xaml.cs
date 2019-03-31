@@ -27,7 +27,7 @@ namespace EngEval.Pages.Test
         {
             InitializeComponent();
             Btn_Play.Visibility = Visibility.Visible;
-            Btn_Play.IsEnabled = false;
+            //Btn_Play.IsEnabled = false;
             Btn_Pause.Visibility = Visibility.Collapsed;
             Audio.Volume = Setting.SYSTEM_VOLUME;
         }
@@ -42,14 +42,25 @@ namespace EngEval.Pages.Test
             }
             else
                 Visibility = Visibility.Visible;
+            Audio.Position = TimeSpan.Zero;
+            Audio.Pause();
+            Btn_Play.Visibility = Visibility.Visible;
+            Btn_Pause.Visibility = Visibility.Collapsed;
+            try
+            {
+                SetProgressBar();
+            }
+            catch (Exception exp)
+            {
+                return;
+            }
             audio = audio_path;
             Audio.Source = new Uri(audio_path, UriKind.RelativeOrAbsolute);
-            Audio.Play();
+            //Audio.Play();
         }
 
         private void Audio_MediaOpened(object sender, RoutedEventArgs e)
         {
-            Audio.Pause();
             try
             {
                 Progress_Bar.Maximum = Audio.NaturalDuration.TimeSpan.TotalSeconds;
@@ -58,7 +69,7 @@ namespace EngEval.Pages.Test
             {
                 Progress_Bar.Maximum = 100;
             }
-            Btn_Play.IsEnabled = true;
+            //Btn_Play.IsEnabled = true;
             SetProgressBar();
         }
 
@@ -127,6 +138,14 @@ namespace EngEval.Pages.Test
             Audio.Pause();
             Btn_Play.Visibility = Visibility.Visible;
             Btn_Pause.Visibility = Visibility.Collapsed;
+            try
+            {
+                SetProgressBar();
+            }
+            catch (Exception exp)
+            {
+                return;
+            }
         }
 
         //拖动进度条

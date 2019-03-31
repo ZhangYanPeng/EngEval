@@ -44,8 +44,10 @@ namespace EngEval.Pages.Test
         private void Init(object sender, RoutedEventArgs e)
         {
             Answer anstemp = new Answer();
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            anstemp.test = mainwin.ListeningTest;
             anstemp = anstemp.LoadAnswer();
-            if( anstemp!=null && anstemp.account.id == answer.account.id && anstemp.test.id == answer.test.id)
+            if ( anstemp!=null && anstemp.account.id == answer.account.id && anstemp.test.id == answer.test.id)
             {
                 //之前中断过
                 answer = anstemp;
@@ -84,6 +86,7 @@ namespace EngEval.Pages.Test
 
             Exercise exercise = mainwin.ListeningTest.getExercise(qn);
             currentQuestion = mainwin.ListeningTest.getQuestion(qn);
+            int timeRemain = mainwin.ListeningTest.timeRemain(qn);
             // 判断试题结束
             if (exercise == null)
             {
@@ -118,7 +121,7 @@ namespace EngEval.Pages.Test
             {
                 if (qc.question == currentQuestion)
                 {
-                    qc.Active();
+                    qc.Active(timeRemain);
                 }
                 else
                 {
@@ -151,8 +154,17 @@ namespace EngEval.Pages.Test
             SysVolumeText.Text = ((int)(SysVolumeBar.Value * 100)).ToString() +"%";
             foreach (QuestionContent qc in ExerciseDisplay.Children)
             {
-                qc.mediaPlayer.Volume = SysVolumeBar.Value;
-                Intertions.Inter_Audio.Audio.Volume = SysVolumeBar.Value;
+                try
+                {
+                    if(qc.mediaPlayer != null)
+                        qc.mediaPlayer.Volume = SysVolumeBar.Value;
+                    if (Intertions.Inter_Audio != null)
+                        Intertions.Inter_Audio.Audio.Volume = SysVolumeBar.Value;
+                }
+                catch(Exception exp)
+                {
+                    continue;
+                }
             }
         }
     }
