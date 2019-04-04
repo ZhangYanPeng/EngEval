@@ -60,11 +60,11 @@ namespace EngEval.Pages.Report
             }
             else
             {
-                if(rtext=="" || rtext== null)
-                {
-                    TestQuestionaire testQuestionaire = new TestQuestionaire(test.id);
-                    testQuestionaire.ShowDialog();
-                }
+                //if(rtext=="" || rtext== null)
+                //{
+                //    TestQuestionaire testQuestionaire = new TestQuestionaire(test.id);
+                //    testQuestionaire.ShowDialog();
+                //}
                 ReportQRCode page = new ReportQRCode(test.id, 0);
                 mainwin.frmMain.Content = page;
             }
