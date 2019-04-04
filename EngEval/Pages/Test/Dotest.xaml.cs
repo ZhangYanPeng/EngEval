@@ -94,7 +94,7 @@ namespace EngEval.Pages.Test
                 //查看direction
                 Direction direction = new Direction(part, this, qn);
                 direction.Owner = mainwin;
-                direction.ShowDialog();
+                direction.Show();
             }
             else
             {
@@ -103,6 +103,9 @@ namespace EngEval.Pages.Test
                 {
                     //提交试题答题记录
                     Inspection inspection = new Inspection(answer);
+                    inspection.Owner = mainwin;
+                    inspection.ShowDialog();
+                    return;
                 }
                 TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
 

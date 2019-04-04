@@ -49,10 +49,10 @@ namespace EngEval.Pages.Test
             try
             {
                 directAudio.Source = new Uri(Setting.SEVER_URL + part.directAudio.src, UriKind.RelativeOrAbsolute);
-                directAudio.Play();
                 directAudio.MediaEnded += DirectAudio_MediaEnded;
+                directAudio.Play();
             }
-            catch (Exception)
+            catch (Exception exp)
             {
                 Task t = new Task(() =>
                 {
@@ -75,8 +75,8 @@ namespace EngEval.Pages.Test
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosing(e);
             _parent.ToQuestionN(nextQueNo, true);
+            base.OnClosing(e);
         }
     }
 }

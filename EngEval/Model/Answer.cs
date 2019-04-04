@@ -109,12 +109,28 @@ namespace EngEval.Model
             stream.Close();
 
             //创建文件
-            string path = "TEMP/"+ test.testno.ToString() + "PROCESS.ini";
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            BinaryWriter bw = new BinaryWriter(fs);
-            bw.Write(data);
-            bw.Close();
-            fs.Close();
+            try
+            {
+                string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
+                FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+
+                BinaryWriter bw = new BinaryWriter(fs);
+                try
+                {
+                    bw.Write(data);
+                    bw.Close();
+                    fs.Close();
+                }
+                catch (Exception)
+                {
+                    fs.Close();
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         //读取本地临时文件
@@ -133,6 +149,10 @@ namespace EngEval.Model
             catch (Exception)
             {
                 return null;
+            }
+            finally
+            {
+                fileStream.Close();
             }
         }
     }

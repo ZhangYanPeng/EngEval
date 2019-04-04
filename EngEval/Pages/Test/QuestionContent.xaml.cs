@@ -71,6 +71,7 @@ namespace EngEval.Pages.Test
             record.start_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
             QCBox.BorderBrush = Brushes.ForestGreen;
             QCBox.BorderThickness = new Thickness(5);
+            //后门
             //CanAnswer();
 
              //播放当前题目音频

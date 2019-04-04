@@ -48,6 +48,7 @@ namespace EngEval.Pages.Test
             }
             MessageBox.Show("恭喜您！已经完成测试！");
             mainwin.FrameNavigator("funclist");
+            Close();
             return;
         }
 
