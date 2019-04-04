@@ -132,6 +132,9 @@
     <Compile Include="Pages\Test\Dotest.xaml.cs">
       <DependentUpon>Dotest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Test\Inspection.xaml.cs">
+      <DependentUpon>Inspection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Test\InterventionPart.xaml.cs">
       <DependentUpon>InterventionPart.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Test\Dotest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\Inspection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

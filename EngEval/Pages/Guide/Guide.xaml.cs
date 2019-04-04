@@ -41,7 +41,7 @@ namespace EngEval.Pages.Guide
             in_1.text = "再听一遍女士的回答，根据上下文推断她的真正意图。";
             in_1.level = 0;
             Audio audio_1 = new Audio();
-            audio_1.src = @"/xjtu/sample/sampleinter1.mp3";
+            audio_1.src = @"/Evaluation/sample/sampleinter1.mp3";
             in_1.audio = audio_1;
             Interventions.Add(in_1);
             Intervention in_2 = new Intervention();
@@ -52,7 +52,7 @@ namespace EngEval.Pages.Guide
             in_3.text = "请先听男士的录音，其中“keep the noise down”的意思是保持安静、声音小点。了解这个短语后，你应该了解男士对女士的请求了。\r\n再听听女士的回答，想想她为什么要提到楼下开party的事情呢？同时对比选项看看哪个能体现女士的真正意图！";
             in_3.level = 2;
             Audio audio_3 = new Audio();
-            audio_3.src = @"/xjtu/sample/sampleinter3.mp3";
+            audio_3.src = @"/Evaluation/sample/sampleinter3.mp3";
             in_3.audio = audio_3;
             Interventions.Add(in_3);
             Intervention in_4 = new Intervention();

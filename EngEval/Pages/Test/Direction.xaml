@@ -13,6 +13,7 @@
         <TextBlock Name="partType" FontSize="40" DockPanel.Dock="Top"></TextBlock>
         <DockPanel Height="30" DockPanel.Dock="Top"></DockPanel>
         <MediaElement Name="directAudio"></MediaElement>
+        <TextBlock FontSize="30" TextWrapping="Wrap" FontWeight="Bold">Directions:</TextBlock>
         <TextBlock Name="directText" FontSize="30" TextWrapping="Wrap"></TextBlock>
     </DockPanel>
 </Window>
