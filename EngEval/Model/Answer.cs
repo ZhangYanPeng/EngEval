@@ -23,6 +23,7 @@ namespace EngEval.Model
         public long end_time;//结束测试时间
         public List<Record> records;//每道题目答题情况
         public ListeningTest test; //试题
+        public string states;
 
         //生成向后台传递的信息
         public Dictionary<string, string> GetParamUpload()
@@ -31,6 +32,7 @@ namespace EngEval.Model
             parameters.Add("tid", test.id);
             parameters.Add("uid", account.id.ToString());
             parameters.Add("type", "0");
+            parameters.Add("states", states);
 
             parameters.Add("records", FormatRecordsString());
             parameters.Add("reasons", FormatReasonsString());

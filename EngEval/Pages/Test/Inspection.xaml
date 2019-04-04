@@ -1,0 +1,59 @@
+﻿<Window x:Class="EngEval.Pages.Test.Inspection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EngEval.Pages.Test"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        Title="Inspection" Height="900" Width="1400">
+    <Grid>
+        <DockPanel>
+            <ListBox HorizontalContentAlignment="Center" VerticalAlignment="Center">
+                <ListBoxItem>
+                    <DockPanel>
+                        <ComboBox DockPanel.Dock="Right" Width="300" Name="Q1" FontSize="30">
+                            <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
+                            <ComboBoxItem>A.非常难</ComboBoxItem>
+                            <ComboBoxItem>B.比较难</ComboBoxItem>
+                            <ComboBoxItem>C.中等</ComboBoxItem>
+                            <ComboBoxItem>D.比较容易</ComboBoxItem>
+                            <ComboBoxItem>E.非常容易</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox FontSize="30" Width="600">你觉得本套测试题难度如何？</TextBox>
+                    </DockPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <DockPanel>
+                        <ComboBox DockPanel.Dock="Right" Width="300" Name="Q2" FontSize="30">
+                            <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
+                            <ComboBoxItem>A.非常集中 </ComboBoxItem>
+                            <ComboBoxItem>B.比较集中</ComboBoxItem>
+                            <ComboBoxItem>C.一般集中</ComboBoxItem>
+                            <ComboBoxItem>D.不太集中</ComboBoxItem>
+                            <ComboBoxItem>E.完全不集中</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox FontSize="30" Width="600">在听的过程中，你的注意力______。</TextBox>
+                    </DockPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <DockPanel>
+                        <ComboBox DockPanel.Dock="Right" Width="300" Name="Q3" FontSize="30">
+                            <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
+                            <ComboBoxItem>A. 非常焦虑</ComboBoxItem>
+                            <ComboBoxItem>B.有些焦虑</ComboBoxItem>
+                            <ComboBoxItem>C.一般焦虑</ComboBoxItem>
+                            <ComboBoxItem>D.不太焦虑</ComboBoxItem>
+                            <ComboBoxItem>E.完全不焦虑</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox FontSize="30" Width="600">你此次做题的焦虑程度:</TextBox>
+                    </DockPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Button FontSize="30" Click="SubmitInspection_Click">提交试卷</Button>
+                </ListBoxItem>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</Window>
