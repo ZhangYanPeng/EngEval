@@ -45,5 +45,11 @@ namespace EngEval.Pages
             //url = strCode;
             //System.Diagnostics.Process.Start(strCode);
         }
+
+        private void Guide_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            mainwin.FrameNavigator("Guide/Guide");
+        }
     }
 }

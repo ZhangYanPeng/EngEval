@@ -80,52 +80,65 @@ namespace EngEval.Pages.Test
         }
 
         //加载第qn题目
-        public void ToQuestionN(int qn)
+        public void ToQuestionN(int qn, bool forceBegin = false)
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
 
             Exercise exercise = mainwin.ListeningTest.getExercise(qn);
             currentQuestion = mainwin.ListeningTest.getQuestion(qn);
             int timeRemain = mainwin.ListeningTest.timeRemain(qn);
-            // 判断试题结束
-            if (exercise == null)
+            Part part = mainwin.listeningTest.getPart(qn);
+            bool isPartFirst = mainwin.listeningTest.isPartFirst(qn);
+            if(!forceBegin && isPartFirst)
             {
-                //提交试题答题记录
-                answer.end_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
-                Dictionary<string, string> parameters = answer.GetParamUpload();
-                bool substate = false;
-                while (!substate)
-                {
-                    substate = SubmitAnswer(parameters);
-                }
-                MessageBox.Show("恭喜您！已经完成测试！");
-                mainwin.FrameNavigator("funclist");
-                return;
+                //查看direction
+                Direction direction = new Direction(part, this, qn);
+                direction.Owner = mainwin;
+                direction.ShowDialog();
             }
-            TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
-
-            //展示exercise
-            if (currentExercise != exercise)
+            else
             {
-                currentExercise = exercise;
-                //清空显示区域
-                ExerciseDisplay.Children.Clear();
-                for (int i=0; i < currentExercise.questions.Length; i++){
-                    QuestionContent questionContent = new QuestionContent(currentExercise.questions[i], mainwin.ListeningTest.getQn(currentExercise.questions[i]), this);
-                    ExerciseDisplay.Children.Add(questionContent);
+                // 判断试题结束
+                if (exercise == null)
+                {
+                    //提交试题答题记录
+                    answer.end_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
+                    Dictionary<string, string> parameters = answer.GetParamUpload();
+                    bool substate = false;
+                    while (!substate)
+                    {
+                        substate = SubmitAnswer(parameters);
+                    }
+                    MessageBox.Show("恭喜您！已经完成测试！");
+                    mainwin.FrameNavigator("funclist");
+                    return;
                 }
-            }
+                TestProgressBar.SetProgress(qn, mainwin.ListeningTest.getExerciseMaxQn(qn), 16);
 
-            //设定当前题目
-            foreach(QuestionContent qc in ExerciseDisplay.Children)
-            {
-                if (qc.question == currentQuestion)
+                //展示exercise
+                if (currentExercise != exercise)
                 {
-                    qc.Active(timeRemain);
+                    currentExercise = exercise;
+                    //清空显示区域
+                    ExerciseDisplay.Children.Clear();
+                    for (int i = 0; i < currentExercise.questions.Length; i++)
+                    {
+                        QuestionContent questionContent = new QuestionContent(currentExercise.questions[i], mainwin.ListeningTest.getQn(currentExercise.questions[i]), this);
+                        ExerciseDisplay.Children.Add(questionContent);
+                    }
                 }
-                else
+
+                //设定当前题目
+                foreach (QuestionContent qc in ExerciseDisplay.Children)
                 {
-                    qc.DeActive();
+                    if (qc.question == currentQuestion)
+                    {
+                        qc.Active(timeRemain);
+                    }
+                    else
+                    {
+                        qc.DeActive();
+                    }
                 }
             }
         }

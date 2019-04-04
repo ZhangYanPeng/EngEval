@@ -49,7 +49,6 @@ namespace EngEval.Model
             }
         }
 
-
         //获取整个Question
         internal Question getQuestion(int qn)
         {
@@ -99,6 +98,44 @@ namespace EngEval.Model
                 }
             }
             return 10;
+        }
+
+        internal Part getPart(int qn)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i)
+                            return part;
+                    }
+                }
+            }
+            return null;
+        }
+
+        internal bool isPartFirst(int qn)
+        {
+            int i = 0;
+            foreach (Part part in parts)
+            {
+                foreach (PartExer pe in part.partExers)
+                {
+                    Exercise exercise = pe.exercise;
+                    foreach (Question que in exercise.questions)
+                    {
+                        i++;
+                        if (qn == i && pe.e_no == 0 && que.q_num == 0)
+                            return true;
+                    }
+                }
+            }
+            return false;
         }
 
         //获取整个exercise
@@ -173,6 +210,8 @@ namespace EngEval.Model
         public string description { get; set; }
         public int p_no { get; set; }
         public PartExer[] partExers { get; set; }
+        public Audio directAudio { get; set; }
+        public string directStr { get; set; }
 
         //排序
         internal void Sort()

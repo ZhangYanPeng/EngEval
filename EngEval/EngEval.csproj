@@ -105,6 +105,9 @@
     <Compile Include="Pages\funclist.xaml.cs">
       <DependentUpon>funclist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Guide\Guide.xaml.cs">
+      <DependentUpon>Guide.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Questionarie\Information.xaml.cs">
       <DependentUpon>Information.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     </Compile>
     <Compile Include="Pages\Report\ReportQRCode.xaml.cs">
       <DependentUpon>ReportQRCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test\Direction.xaml.cs">
+      <DependentUpon>Direction.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Test\Dotest.xaml.cs">
       <DependentUpon>Dotest.xaml</DependentUpon>
@@ -162,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Guide\Guide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Report\ReportQRCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Test\Direction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -266,6 +280,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="listen_128px_1107203_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sample\inter1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sample\inter3.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sample\main.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

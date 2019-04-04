@@ -29,7 +29,7 @@
                 <Image Source="../Images/Icon/report.png"></Image>
             </DockPanel>
         </Button>
-        <Button Grid.Column="1" Grid.Row="0">
+        <Button Grid.Column="1" Grid.Row="0" Click="Guide_Click">
             <DockPanel>
                 <TextBlock FontSize="60" HorizontalAlignment="Center" Text="使用向导" DockPanel.Dock="Bottom"></TextBlock>
                 <Image Source="../Images/Icon/help.png"></Image>
