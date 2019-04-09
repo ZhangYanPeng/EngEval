@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace EngEval.Pages.Test
 {
@@ -27,6 +28,7 @@ namespace EngEval.Pages.Test
         public Question currentQuestion { get; set; }
         public int currentQn { get; set; }
         public Answer answer { get; set; }
+        DispatcherTimer timer = null;
 
         public Dotest()
         {
@@ -58,6 +60,52 @@ namespace EngEval.Pages.Test
                 answer.start_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
             }
             ToNextQue();
+
+            //设置计时器
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += new EventHandler(timer_tick);
+            timer.Start();
+        }
+
+        //更新计时
+        private void timer_tick(object sender, EventArgs e)
+        {
+            try
+            {
+                long currentTime = DateTransform.ConvertDataTimeToLong(DateTime.Now);
+                long time_consume = currentTime - answer.start_time;
+                if (time_consume > 0)
+                {
+                    long hour = 0;
+                    long minute = 0;
+                    long second = 0;
+                    second = time_consume / 1000;
+                    if (second > 60)
+                    {
+                        minute = second / 60;
+                        second = second % 60;
+                    }
+                    if (minute > 60)
+                    {
+                        hour = minute / 60;
+                        minute = minute % 60;
+                    }
+                    TestTimer.Text = toTimeStr(hour) + " : " + toTimeStr(minute) + " : " + toTimeStr(second);
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private string toTimeStr(long val)
+        {
+            string v = val.ToString();
+            if (v.Length == 1)
+                v = "0" + v;
+            return v;
         }
 
         //进入下一题

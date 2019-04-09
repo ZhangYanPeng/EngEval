@@ -163,7 +163,7 @@ namespace EngEval.Pages.Guide
         #region 设置右侧文本提示
         private void SetGuideBF()
         {
-            GuideText.Text = "在听力开始前，你将会有5~20秒不等的时间，阅读题目选项";
+            GuideText.Text = "在听力开始前，你将会有5~32秒不等的时间，阅读题目选项";
         }
         #endregion
 

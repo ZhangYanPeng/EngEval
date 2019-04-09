@@ -179,7 +179,10 @@
             </Border>
             <AdornerDecorator Name="QueAdorner" Opacity="0">
                 <Border Background="LightGray" BorderBrush="LightGray"  CornerRadius="20" BorderThickness="5" Margin="50 10 50 10">
-                    <TextBlock FontSize="40" VerticalAlignment="Center" TextAlignment="Center">提示区域</TextBlock>
+                    <DockPanel>
+                        <TextBlock FontSize="40" VerticalAlignment="Center" TextAlignment="Center" Background="LightSlateGray" DockPanel.Dock="Bottom">滚动条，长对话或篇章显示题目不完全时，可以左右滑动</TextBlock>
+                        <TextBlock FontSize="40" VerticalAlignment="Center" TextAlignment="Center">答题区域</TextBlock>
+                    </DockPanel>
                 </Border>
             </AdornerDecorator>
         </Grid>

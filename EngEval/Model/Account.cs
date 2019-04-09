@@ -18,6 +18,8 @@ namespace EngEval.Model
         public string password { get; set; }
         public string major { get; set; }
         public string questionaire { get; set; }
+        public string questionaireBF { get; set; }
+        public string questionaireAF { get; set; }
         public int english_level { get; set; }
         public int status { get; set; }
         public EngClass engClass { get; set; }

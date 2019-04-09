@@ -148,7 +148,7 @@ namespace EngEval.Pages.Test
             //未回答
             if(op == 0)
             {
-                MessageBox.Show("请作答后再提交答案！", "提示");
+                MessageBox.Show(@"请选择答案后再提交哦\(^o^)/~", "提示");
                 return;
             }
             //记录回答过程

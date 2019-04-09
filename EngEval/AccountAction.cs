@@ -19,7 +19,7 @@ namespace EngEval
             set
             {
                 user = value;
-                if(user != null)
+                if (user != null)
                 {
                     if (user.id != -1) {
                         TopBar.Visibility = Visibility.Visible;
@@ -34,6 +34,8 @@ namespace EngEval
                 FrameNavigator("login");
             }
         }
+
+        public string Questionaire{get;set;}
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {

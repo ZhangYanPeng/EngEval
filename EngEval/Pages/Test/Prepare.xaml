@@ -9,8 +9,8 @@
       Title="Prepare">
 
     <DockPanel Background="LightYellow">
-        <TextBlock Visibility="Visible" Name="LoadingAudiosText" HorizontalAlignment="Center" FontSize="40" Text="正在加载音频，请稍后...(0/16)" DockPanel.Dock="Top" Margin="0 100 0 0"></TextBlock>
-        <TextBlock Visibility="Collapsed" Name="LoadingFinishText" HorizontalAlignment="Center" FontSize="40" Text="音频加载完毕，可以开始测试。" DockPanel.Dock="Top" Margin="0 100 0 0"></TextBlock>
+        <TextBlock Visibility="Visible" Name="LoadingAudiosText" HorizontalAlignment="Center" FontSize="40" Text="正在加载音频，请稍后...(0/16)" DockPanel.Dock="Top" Margin="0 50 0 0"></TextBlock>
+        <TextBlock Visibility="Collapsed" Name="LoadingFinishText" HorizontalAlignment="Center" FontSize="40" Text="音频加载完毕，可以开始测试。" DockPanel.Dock="Top" Margin="0 50 0 0"></TextBlock>
         <DockPanel Width="1000" Height="600" VerticalAlignment="Top" Margin=" 0 50 0 0">
             <DockPanel DockPanel.Dock="Top" Background="#FF0068E2">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="注意事项" FontSize="40" Foreground="White"></TextBlock>

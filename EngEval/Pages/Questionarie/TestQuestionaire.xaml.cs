@@ -14,23 +14,66 @@ using System.Windows.Shapes;
 
 namespace EngEval.Pages.Questionarie
 {
+    public class QuesContent
+    {
+        public String Text { get; set; }
+        public String QNO { get; set; }
+        public ComboBoxItem Selection { get; set; }
+        public QuesContent(string t, string qno)
+        {
+            Text = t;
+            QNO = qno;
+        }
+    }
+
+
     /// <summary>
     /// TestQuestionaire.xaml 的交互逻辑
     /// </summary>
     public partial class TestQuestionaire : Window
     {
-        string testid { get; set; }
-        public TestQuestionaire(string tid)
+        List<QuesContent> QuesContents { get; set; }
+        int testno { get; set; }
+        public TestQuestionaire(int tno)
         {
             InitializeComponent();
-            testid = tid;
+            testno = tno;
+            Loaded += TestQuestionaire_Loaded;
+        }
+
+        private void TestQuestionaire_Loaded(object sender, RoutedEventArgs e)
+        {
+            QuesContents = new List<QuesContent>();
+            if (testno == 1)
+            {
+                QuesContents.Add(new QuesContent("我能理解听力中的特殊句式，如虚拟语气，倒装句、否定句等。","1"));
+                QuesContents.Add(new QuesContent("我能获取跟听力目的有关的信息。","2"));
+                QuesContents.Add(new QuesContent("我能获取数字、时间和地点等信息。","3"));
+                QuesContents.Add(new QuesContent("我能根据上下文推测文中隐含的信息。","4"));
+                QuesContents.Add(new QuesContent("我能理解听力的交际功能，如命令、请求、建议等。","5"));
+                QuesContents.Add(new QuesContent("我能理解听力任务中的关键词汇或短语。","6"));
+                QuesContents.Add(new QuesContent("我能识别对话或篇章的主题。","7"));
+                QuesContents.Add(new QuesContent("我能获取人物关系、事情发生原因和结果等信息。","8"));
+                QuesContents.Add(new QuesContent("我能理解英语听力中常见的固定搭配，如by the way。","9"));
+                QuesContents.Add(new QuesContent("我能通过衔接词，如 firstly, therefore, however, moreover, on the other hand等获取相关信息。","10"));
+                QuesContents.Add(new QuesContent("我能理解说话者的观点。","11"));
+                QuesContents.Add(new QuesContent("我能依据上下文推测不熟悉词汇的意义。","12"));
+                QuesContents.Add(new QuesContent("我能根据听到的内容推测下面将发生什么。","13"));
+                QuesContents.Add(new QuesContent("我能理解英语口语中常见的俚语，如one’s cup of tea。","14"));
+                QuesContents.Add(new QuesContent("我能理解词汇或短语在具体情境下的意义，如book在短语read a book 和book a ticket中的意思不同。","15"));
+                QuesContents.Add(new QuesContent("我能通过连接词，如also, but, still, then, because, before等获取相关信息。","16"));
+                QuesContents.Add(new QuesContent("我能对所听内容进行总结和概括。","17"));
+                QuesContents.Add(new QuesContent("我能从听力中辨别出重要信息。","18"));
+                QuesContents.Add(new QuesContent("我能推断出说话人的立场、情感和态度。","19"));
+            }
+            QuestionaireContent.ItemsSource = QuesContents;
         }
 
         private bool ValidateInfo()
         {
-            for(int i = 1; i <= 20; i++)
+            foreach(QuesContent qc in QuesContents)
             {
-                if (getQues(i).Content.ToString() == "请选择")
+                if (qc.Selection.Content.ToString() == "请选择")
                     return false;
             }
             return true;
@@ -40,7 +83,7 @@ namespace EngEval.Pages.Questionarie
         {
             if (!ValidateInfo())
             {
-                MessageBox.Show("请回答所有问题。", "提示");
+                MessageBox.Show("请回答所有问题。","提示");
                 return;
             }
 
@@ -49,10 +92,13 @@ namespace EngEval.Pages.Questionarie
             {
                 MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
-                parameters.Add("userId", mainwin.User.id.ToString());
-                parameters.Add("testId", testid);
+                parameters.Add("uid", mainwin.User.id.ToString());
+                if(testno == 1)
+                    parameters.Add("quesn", "0");
+                else
+                    parameters.Add("quesn", "1");
                 parameters.Add("ques", FormatQuestionaire());
-                string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/RateSubmit", parameters, ref isSuccess);
+                string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/submitQuestionaire", parameters, ref isSuccess);
                 if (isSuccess)
                 {
                     Close();
@@ -63,39 +109,13 @@ namespace EngEval.Pages.Questionarie
         private string FormatQuestionaire()
         {
             string questionaire = "";
-            for (int i = 1; i <= 20; i++)
+            foreach (QuesContent qc in QuesContents)
             {
-                questionaire += getQues(i).Content.ToString() + " | ";
+                questionaire += qc.QNO + ":" + qc.Selection.Content.ToString().Substring(0,1) + " | ";
             }
             return questionaire;
         }
-
-        private ComboBoxItem getQues(int i)
-        {
-            switch (i)
-            {
-                case 1: return Q1.SelectedItem as ComboBoxItem;
-                case 2: return Q2.SelectedItem as ComboBoxItem;
-                case 3: return Q3.SelectedItem as ComboBoxItem;
-                case 4: return Q4.SelectedItem as ComboBoxItem;
-                case 5: return Q5.SelectedItem as ComboBoxItem;
-                case 6: return Q6.SelectedItem as ComboBoxItem;
-                case 7: return Q7.SelectedItem as ComboBoxItem;
-                case 8: return Q8.SelectedItem as ComboBoxItem;
-                case 9: return Q9.SelectedItem as ComboBoxItem;
-                case 10: return Q10.SelectedItem as ComboBoxItem;
-                case 11: return Q11.SelectedItem as ComboBoxItem;
-                case 12: return Q12.SelectedItem as ComboBoxItem;
-                case 13: return Q13.SelectedItem as ComboBoxItem;
-                case 14: return Q14.SelectedItem as ComboBoxItem;
-                case 15: return Q15.SelectedItem as ComboBoxItem;
-                case 16: return Q16.SelectedItem as ComboBoxItem;
-                case 17: return Q17.SelectedItem as ComboBoxItem;
-                case 18: return Q18.SelectedItem as ComboBoxItem;
-                case 19: return Q19.SelectedItem as ComboBoxItem;
-                case 20: return Q20.SelectedItem as ComboBoxItem;
-            }
-            return null;
-        }
     }
+
+    
 }

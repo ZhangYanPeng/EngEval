@@ -14,297 +14,35 @@
         
         <GroupBox FontSize="20" BorderBrush="Gray" Margin="5">
             <GroupBox.Header>
-                <TextBlock DockPanel.Dock="Top" FontSize="25" Height="40" TextAlignment="Center">测试反馈问卷</TextBlock>
+                <TextBlock DockPanel.Dock="Top" FontSize="30" Height="40" TextAlignment="Center">大学生英语听力策略问卷</TextBlock>
             </GroupBox.Header>
             <DockPanel>
-                <TextBlock DockPanel.Dock="Top" FontSize="25" Height="40" TextAlignment="Center" >以下问卷主要用于了解学生的听力理解过程，请根据你的情况如实作答.</TextBlock>
-                <TextBlock DockPanel.Dock="Top" FontSize="20" Height="40" TextAlignment="Center">①完全不符合 ②很不符合 ③不太符合 ④有点符合 ⑤比较符合 ⑥完全符合</TextBlock>
+                <TextBlock DockPanel.Dock="Top" FontSize="25" TextAlignment="Left" TextWrapping="Wrap" Margin="0 20 0 0">本问卷旨在调查大学生英语听力策略。请你根据数字所代表的意思，在问题后填写相应的数字。请根据自己的实际情况填写。此问卷仅作为学术研究，你所提供的信息将被保密，谢谢合作！</TextBlock>
+                <TextBlock DockPanel.Dock="Top" FontSize="20" Height="40" TextAlignment="Center" TextWrapping="Wrap" Margin="0 20 0 0">1 =完全不符合我的情况;  2 =不符合我的情况;  3 =有时不符合我的情况; </TextBlock>
+                <TextBlock DockPanel.Dock="Top" FontSize="20" Height="40" TextAlignment="Center" TextWrapping="Wrap">4 =通常符合我的情况;  5 =完全符合我的情况</TextBlock>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="30 0 30 0">
-                    <ListBox HorizontalContentAlignment="Stretch">
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q1">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听力开始之前，我会根据题目来计划我应该如何去听。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q2">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听力开始之前，我看到题目会回想以前听过的类似内容。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q3">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听的过程中,我会时不时问自己是否满意对当前题目的理解。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q4">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听的过程中,我头脑里有清晰的听力目标。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q5">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听力结束后，我会回想听的过程,并思考下次再听时我可能会做哪些改变。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q6">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>当听不懂的时候，我对听力内容的注意力会更集中。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q7">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>当意识到自己走神时,我能立刻重新集中注意力到所听内容上来。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q8">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>当发现注意力分散时,我努力回到所听内容上来</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q9">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我会用我知道的词汇去推断生词的词义。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q10">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我把所听到的内容同自己对题目相关的已有知识进行对比。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q11">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我利用自己的经历和已有知识来帮助理解。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q12">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>在意识到自己的理解不对时,我会迅速调整自己的理解。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q13">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我利用文章的大意来帮助推断词汇的含义。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q14">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我会回想前面听到的内容,帮助自己判断现在所猜测的词汇意义是否正确。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q15">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>相比英语读、写 、说的能力，我感觉听力更难。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q16">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我觉得英语听力对我是个挑战。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q17">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我在听英语时感觉很紧张。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q18">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>我会一边听一边在头脑中翻译。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q19">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听听力时，我会把关键词翻译成中文。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <DockPanel>
-                                <ComboBox DockPanel.Dock="Right" Width="100" Name="Q20">
-                                    <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox>听听力时,我会在头脑中将所听到的逐字翻译。</TextBox>
-                            </DockPanel>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <Button Background="DeepSkyBlue" FontSize="20" Foreground="White" Margin="10" Height="35" Width="300" Click="Submit_Click">提交问卷</Button>
-                        </ListBoxItem>
-                    </ListBox>
+                    <DockPanel>
+                        <Button Background="DeepSkyBlue" FontSize="20" Foreground="White" Margin="10" Height="35" Width="300" Click="Submit_Click" DockPanel.Dock="Bottom">提交问卷</Button>
+                        <ListView HorizontalContentAlignment="Stretch" Name="QuestionaireContent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <ComboBox DockPanel.Dock="Right" Width="300" Height="30" FontSize="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Tag="{Binding QNO}" SelectedValue="{Binding Selection}">
+                                            <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
+                                            <ComboBoxItem>1.完全不符合我的情况</ComboBoxItem>
+                                            <ComboBoxItem>2.不符合我的情况</ComboBoxItem>
+                                            <ComboBoxItem>3.有时不符合我的情况</ComboBoxItem>
+                                            <ComboBoxItem>4.通常符合我的情况</ComboBoxItem>
+                                            <ComboBoxItem>5.完全符合我的情况</ComboBoxItem>
+                                        </ComboBox>
+                                        <TextBlock FontSize="20" Width="30" TextWrapping="Wrap" Text="{Binding QNO}"></TextBlock>
+                                        <TextBlock FontSize="20" TextWrapping="Wrap" Text=". "></TextBlock>
+                                        <TextBlock FontSize="20" TextWrapping="Wrap" Width="600" Text="{Binding Text}"></TextBlock>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DockPanel>
                 </ScrollViewer>
             </DockPanel>
         </GroupBox>

@@ -1,5 +1,6 @@
 ﻿using EngEval.Common.Http;
 using EngEval.Model;
+using EngEval.Pages.Questionarie;
 using Http;
 using Newtonsoft.Json;
 using System;
@@ -52,6 +53,7 @@ namespace EngEval.Pages.Test
                 TestName.Text += test.title;
                 MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
                 mainwin.ListeningTest = test;
+
                 if (IsFinished(test))
                 {
                     MessageBox.Show("您已完成所有测试！");
@@ -62,6 +64,13 @@ namespace EngEval.Pages.Test
                 //开启一个线程加载音频
                 Task task = new Task(() => LoadAudios(test));
                 task.Start();
+
+                if (test.testno == 1 && (mainwin.User.questionaireBF == "" || mainwin.User.questionaireBF == null) )
+                {
+                    TestQuestionaire testQuestionaire = new TestQuestionaire(test.testno);
+                    testQuestionaire.Owner = mainwin;
+                    testQuestionaire.ShowDialog();
+                }
             }
             else
             {

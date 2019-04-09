@@ -11,15 +11,15 @@
 
     <DockPanel Background="White">
         <Button Background="Transparent" DockPanel.Dock="Bottom" FontSize="40" Foreground="Black" Click="Back_Click">返回首页</Button>
-        <DockPanel DockPanel.Dock="Left" Width="1100" Name="PDFBrowser">
+        <DockPanel DockPanel.Dock="Left" Width="1200" Name="PDFBrowser">
             <local:PdfViewer x:Name="ReporterViewer" Loaded="ReporterViewer_Loaded"></local:PdfViewer>
         </DockPanel>
-        <DockPanel Width="300" Height="400" DockPanel.Dock="Bottom">
-            <Image Name="QRCode" Width="300" Height="300" DockPanel.Dock="Bottom"></Image>
+        <DockPanel Width="200" Height="300" DockPanel.Dock="Bottom">
+            <Image Name="QRCode" Width="200" Height="200" DockPanel.Dock="Bottom"></Image>
             <TextBlock FontSize="20" Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Bottom">(*需要在校园网环境下进行)</TextBlock>
             <TextBlock FontSize="20" Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Bottom">请扫描二维码获取报告</TextBlock>
             <TextBlock FontSize="20" Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
-                <Hyperlink Name="hyperlink" Click="LoadReportUrl"  Foreground="DarkBlue">点击此处可直接下载报告到本地</Hyperlink>
+                <Hyperlink Name="hyperlink" Click="LoadReportUrl"  Foreground="DarkBlue">点击此处可下载报告</Hyperlink>
             </TextBlock>
             <DockPanel Height="50" DockPanel.Dock="Bottom"></DockPanel>
         </DockPanel>

@@ -84,10 +84,10 @@ namespace EngEval.Model
                         if (qn == i)
                         {
                             if (exercise.questions.Length <= 1)
-                                return 10;
+                                return 8;
                             if (que.q_num == 0)
                             {
-                                return exercise.questions.Length * 5;
+                                return exercise.questions.Length * 8;
                             }
                             else
                             {

@@ -22,10 +22,16 @@
         <local:InterventionPart x:Name="Intertions" Height="240" DockPanel.Dock="Bottom"></local:InterventionPart>
 
         <Border CornerRadius="20" BorderThickness="5" BorderBrush="Wheat" Margin="50 10 50 10" Background="Wheat">
-            <ScrollViewer Name="ExerciseDisplayScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="10,10,10,10">
-                <WrapPanel Name="ExerciseDisplay" Margin="0 0 0 0" Orientation="Horizontal" MinWidth="1270">
-                </WrapPanel>
-            </ScrollViewer>
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <TextBlock FontSize="20" DockPanel.Dock="Left" Margin="20 0 5 0">测试用时：</TextBlock>
+                    <TextBlock Name="TestTimer" FontSize="20"></TextBlock>
+                </DockPanel>
+                <ScrollViewer Name="ExerciseDisplayScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="10,10,10,10">
+                    <WrapPanel Name="ExerciseDisplay" Margin="0 0 0 0" Orientation="Horizontal" MinWidth="1270">
+                    </WrapPanel>
+                </ScrollViewer>
+            </DockPanel>
         </Border>
     </DockPanel>
 </Page>

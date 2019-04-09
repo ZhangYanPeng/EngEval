@@ -50,7 +50,7 @@ namespace EngEval.Pages.Test
             {
                 SetProgressBar();
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 return;
             }
@@ -65,7 +65,7 @@ namespace EngEval.Pages.Test
             {
                 Progress_Bar.Maximum = Audio.NaturalDuration.TimeSpan.TotalSeconds;
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 Progress_Bar.Maximum = 100;
             }
@@ -92,7 +92,7 @@ namespace EngEval.Pages.Test
             try
             {
                 SetProgressBar();
-            }catch(Exception exp)
+            }catch(Exception)
             {
                 return;
             }
@@ -117,7 +117,7 @@ namespace EngEval.Pages.Test
             {
                 return str.Substring(0, str.LastIndexOf(":") + 3);
             }
-            catch (Exception exp)
+            catch (Exception )
             {
                 return "";
             }
@@ -142,7 +142,7 @@ namespace EngEval.Pages.Test
             {
                 SetProgressBar();
             }
-            catch (Exception exp)
+            catch (Exception )
             {
                 return;
             }
@@ -154,7 +154,7 @@ namespace EngEval.Pages.Test
             try
             {
                 Audio.Position = TimeSpan.FromSeconds(Progress_Bar.Value);
-            }catch(Exception exp)
+            }catch(Exception )
             {
                 Audio.Position = TimeSpan.Zero;
             }
