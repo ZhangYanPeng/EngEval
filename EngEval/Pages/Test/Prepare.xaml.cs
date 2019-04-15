@@ -151,7 +151,7 @@ namespace EngEval.Pages.Test
                     try
                     {
                         fi.Delete();
-                    }catch(Exception exp)
+                    }catch(Exception)
                     {
                         continue;
                     }
@@ -163,7 +163,8 @@ namespace EngEval.Pages.Test
         //加载单个音频
         private bool LoadAuido(Audio audio)
         {
-            return DownloadFile.Download(Setting.SEVER_URL + audio.src, "TEMP/" + audio.src.Substring(audio.src.LastIndexOf("/"))); 
+            return DownloadFile.Download(Setting.SEVER_URL + audio.src, "TEMP/" + audio.src.Substring(audio.src.LastIndexOf("/")));
+            //return DownloadFile.Download("http://202.117.216.251:8080/" + audio.src, "TEMP/" + audio.src.Substring(audio.src.LastIndexOf("/")));
         }
 
         //开始测试

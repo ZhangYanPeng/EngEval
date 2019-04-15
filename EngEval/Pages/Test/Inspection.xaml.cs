@@ -36,28 +36,14 @@ namespace EngEval.Pages.Test
                 return;
             }
             answer.states = FormatQuestionaire();
-
-            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
-            //提交试题答题记录
             answer.end_time = DateTransform.ConvertDataTimeToLong(DateTime.Now);
-            Dictionary<string, string> parameters = answer.GetParamUpload();
-            bool substate = false;
-            while (!substate)
-            {
-                substate = SubmitAnswer(parameters);
-            }
+
+            answer.SaveLocal();
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             MessageBox.Show("恭喜您！已经完成测试！");
             mainwin.FrameNavigator("funclist");
             Close();
             return;
-        }
-
-        //提交答案
-        private bool SubmitAnswer(Dictionary<string, string> parameters)
-        {
-            Boolean isSuccess = false;
-            string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/finishTest", parameters, ref isSuccess);
-            return isSuccess;
         }
 
         private string FormatQuestionaire()

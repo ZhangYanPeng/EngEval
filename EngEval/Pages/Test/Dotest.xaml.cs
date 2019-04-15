@@ -208,7 +208,7 @@ namespace EngEval.Pages.Test
                     if (Intertions.Inter_Audio != null)
                         Intertions.Inter_Audio.Audio.Volume = SysVolumeBar.Value;
                 }
-                catch(Exception exp)
+                catch(Exception)
                 {
                     continue;
                 }

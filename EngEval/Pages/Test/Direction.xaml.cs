@@ -49,10 +49,11 @@ namespace EngEval.Pages.Test
             try
             {
                 directAudio.Source = new Uri(Setting.SEVER_URL + part.directAudio.src, UriKind.RelativeOrAbsolute);
+                //directAudio.Source = new Uri("http://202.117.216.251:8080/" + part.directAudio.src, UriKind.RelativeOrAbsolute);
                 directAudio.MediaEnded += DirectAudio_MediaEnded;
                 directAudio.Play();
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 Task t = new Task(() =>
                 {

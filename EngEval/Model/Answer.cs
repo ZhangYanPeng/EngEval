@@ -1,4 +1,5 @@
 ﻿using EngEval.Common.DateTransform;
+using Http;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -6,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace EngEval.Model
 {
@@ -102,58 +105,90 @@ namespace EngEval.Model
         //保存在本地临时文件
         public void SaveLocal()
         {
-            MemoryStream stream = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(stream, this);
-            byte[] data = stream.ToArray();
-            stream.Close();
+            //MemoryStream stream = new MemoryStream();
+            //BinaryFormatter bf = new BinaryFormatter();
+            //bf.Serialize(stream, this);
+            //byte[] data = stream.ToArray();
+            //stream.Close();
 
-            //创建文件
-            try
-            {
-                string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
-                FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            ////创建文件
+            //try
+            //{
+            //    string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
+            //    FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
 
-                BinaryWriter bw = new BinaryWriter(fs);
-                try
-                {
-                    bw.Write(data);
-                    bw.Close();
-                    fs.Close();
-                }
-                catch (Exception)
-                {
-                    fs.Close();
-                    return;
-                }
-            }
-            catch (Exception)
+            //    BinaryWriter bw = new BinaryWriter(fs);
+            //    try
+            //    {
+            //        bw.Write(data);
+            //        bw.Close();
+            //        fs.Close();
+            //    }
+            //    catch (Exception)
+            //    {
+            //        fs.Close();
+            //        return;
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    return;
+            //}
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            //提交试题答题记录
+            Dictionary<string, string> parameters = GetParamUpload();
+            bool substate = false;
+            while (!substate)
             {
-                return;
+                substate = SubmitAnswer(parameters);
             }
+        }
+
+        //提交答案
+        private bool SubmitAnswer(Dictionary<string, string> parameters)
+        {
+            Boolean isSuccess = false;
+            string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/tmpFinishTest", parameters, ref isSuccess);
+            return isSuccess;
         }
 
         //读取本地临时文件
         public Answer LoadAnswer()
         {
             //打开文件
-            string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
-            FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read, 4 * 1024 * 1024, true);
-            BinaryFormatter bf = new BinaryFormatter();
-            try
+            //string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
+            //FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read, 4 * 1024 * 1024, true);
+            //BinaryFormatter bf = new BinaryFormatter();
+            //try
+            //{
+            //    object obj = bf.Deserialize(fileStream);
+            //    fileStream.Close();
+            //    return obj as Answer;
+            //}
+            //catch (Exception)
+            //{
+            //    return null;
+            //}
+            //finally
+            //{
+            //    fileStream.Close();
+            //}
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("tid", mainwin.listeningTest.id);
+            parameters.Add("uid", mainwin.user.id.ToString());
+            Boolean isSuccess = false;
+            string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/testResult", parameters, ref isSuccess);
+            if (isSuccess)
             {
-                object obj = bf.Deserialize(fileStream);
-                fileStream.Close();
-                return obj as Answer;
+                Answer answer = JsonConvert.DeserializeObject<Answer>(rtext);
+                foreach (Record rec in records)
+                    rec.DeFormatResult();
+                answer.account = mainwin.User;
+                answer.test = mainwin.ListeningTest;
+                return answer;
             }
-            catch (Exception)
-            {
-                return null;
-            }
-            finally
-            {
-                fileStream.Close();
-            }
+            return null;
         }
     }
 
@@ -165,10 +200,30 @@ namespace EngEval.Model
         public long answer_time;
         public long end_time;
         public List<int> answers;
+        public string result;
 
         public Record()
         {
             answers = new List<int>();
+        }
+
+        public void DeFormatResult()
+        {
+            string[] sArray = Regex.Split(result, @"|", RegexOptions.IgnoreCase);
+            foreach (string i in sArray)
+            {
+                if(i != "" && i != null)
+                {
+                    try
+                    {
+                        answers.Add(int.Parse(i));
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                }
+            }
         }
     }
 }
