@@ -117,6 +117,9 @@
     <Compile Include="Pages\Questionarie\TestQuestionaire.xaml.cs">
       <DependentUpon>TestQuestionaire.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Report\EvaluationControl.xaml.cs">
+      <DependentUpon>EvaluationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Report\PdfViewer.xaml.cs">
       <DependentUpon>PdfViewer.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,9 @@
     </Compile>
     <Compile Include="Pages\Report\ReportQRCode.xaml.cs">
       <DependentUpon>ReportQRCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Report\SystemFeedback.xaml.cs">
+      <DependentUpon>SystemFeedback.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Test\Direction.xaml.cs">
       <DependentUpon>Direction.xaml</DependentUpon>
@@ -191,6 +197,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Report\EvaluationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Report\PdfViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Report\ReportQRCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Report\SystemFeedback.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

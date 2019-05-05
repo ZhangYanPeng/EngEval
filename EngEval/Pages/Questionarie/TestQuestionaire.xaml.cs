@@ -66,6 +66,28 @@ namespace EngEval.Pages.Questionarie
                 QuesContents.Add(new QuesContent("我能从听力中辨别出重要信息。","18"));
                 QuesContents.Add(new QuesContent("我能推断出说话人的立场、情感和态度。","19"));
             }
+            if (testno == 3)
+            {
+                QuesContents.Add(new QuesContent("我能理解词汇或短语在具体情境下的意义，如book在短语read a book 和book a ticket中的意思不同。", "1"));
+                QuesContents.Add(new QuesContent("我能理解听力任务中的关键词汇或短语。", "2"));
+                QuesContents.Add(new QuesContent("我能理解英语听力中常见的固定搭配，如by the way。", "3"));
+                QuesContents.Add(new QuesContent("我能理解英语口语中常见的俚语，如one’s cup of tea。", "4"));
+                QuesContents.Add(new QuesContent("我能理解听力中的特殊句式，如虚拟语气，倒装句、否定句等。", "5"));
+                QuesContents.Add(new QuesContent("我能通过连接词，如also, but, still, then, because, before等获取相关信息。", "6"));
+                QuesContents.Add(new QuesContent("我能通过衔接词，如 firstly, therefore, however, moreover, on the other hand等获取相关信息。", "7"));
+                QuesContents.Add(new QuesContent("我能获取跟听力目的有关的信息。", "8"));
+                QuesContents.Add(new QuesContent("我能识别对话或篇章的主题。", "9"));
+                QuesContents.Add(new QuesContent("我能理解说话者的观点。", "10"));
+                QuesContents.Add(new QuesContent("我能对所听内容进行总结和概括。", "11"));
+                QuesContents.Add(new QuesContent("我能获取数字、时间和地点等细节。", "12"));
+                QuesContents.Add(new QuesContent("我能获取人物关系、事情发生原因和结果等细节。", "13"));
+                QuesContents.Add(new QuesContent("我能从听力中辨别出重要细节。", "14"));
+                QuesContents.Add(new QuesContent("我能推断出说话人的立场、情感和态度。 ", "15"));
+                QuesContents.Add(new QuesContent("我能理解听力的交际功能，如命令、请求、建议等。", "16"));
+                QuesContents.Add(new QuesContent("我能依据上下文推测不熟悉词汇的意义。", "17"));
+                QuesContents.Add(new QuesContent("我能根据上下文推测文中隐含的信息。", "18"));
+                QuesContents.Add(new QuesContent("我能根据听到的内容推测下面将发生什么。", "19"));
+            }
             QuestionaireContent.ItemsSource = QuesContents;
         }
 

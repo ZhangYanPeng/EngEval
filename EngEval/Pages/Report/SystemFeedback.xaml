@@ -1,0 +1,227 @@
+﻿<Window x:Class="EngEval.Pages.Report.SystemFeedback"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EngEval.Pages.Report"
+        mc:Ignorable="d"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        WindowStyle="None"
+        Title="问卷" Height="900" Width="1000">
+    <DockPanel>
+
+        <GroupBox FontSize="20" BorderBrush="Gray" Margin="5">
+            <GroupBox.Header>
+                <TextBlock DockPanel.Dock="Top" FontSize="30" Height="40" TextAlignment="Center">系统总体反馈问卷</TextBlock>
+            </GroupBox.Header>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontSize="25" TextAlignment="Left" TextWrapping="Wrap" Margin="0 20 0 0">亲爱的同学，再次感谢你使用“英语听力诊断和动态评估系统”！你的意见对系统的改进和完善非常重要，请你根据三次使用系统的真实感受认真填写以下问卷，谢谢合作！</TextBlock>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="30 0 30 0">
+                    <DockPanel>
+                        <Button Background="DeepSkyBlue" FontSize="20" Foreground="White" Margin="10" Height="35" Width="300" Click="Submit_Click" DockPanel.Dock="Bottom">提交问卷</Button>
+                        <Viewbox Width="900">
+                            <StackPanel Name="QContent" Orientation="Vertical" Width="900">
+                                <DockPanel>
+                                    <TextBox Name="Q1" BorderThickness="2" DockPanel.Dock="Right" Width="300" FontSize="30"></TextBox>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="1. 按照百分制，你为系统总体打_______分。"></TextBlock>
+                                </DockPanel>
+                                
+                                <DockPanel>
+                                    <local:EvaluationControl DockPanel.Dock="Right" x:Name="Q2" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="2. 学习系统的操作流畅程度"></TextBlock>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="3. 你对系统中&quot;测试+指导&quot;的这种形式"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="适应程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q3" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="喜欢程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q4" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="帮助程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q5" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="推荐程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q6" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="4. 你对系统中&quot;文本+音频&quot;的指导形式"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="适应程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q7" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="喜欢程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q8" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="帮助程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q9" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="推荐程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q10" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="5. 你对系统中递进式提示的四步指导方式"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="适应程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q11" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="喜欢程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q12" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="帮助程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q13" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="推荐程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q14" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="6. 你对系统生成的学习反馈报告"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="适应程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q15" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="喜欢程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q16" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="帮助程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q17" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock FontSize="30" DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap" Margin="100 0 0 0" Text="推荐程度"></TextBlock>
+                                    <local:EvaluationControl x:Name="Q18" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <local:EvaluationControl DockPanel.Dock="Right" x:Name="Q19" BorderThickness="2" Width="500" Height="60"></local:EvaluationControl>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="7. 学习反馈报告在反映你现阶段英语听力能力的准确程度"></TextBlock>
+                                </DockPanel>
+                                
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="8. 为了更满足你的学习需求，系统可以提升以下哪些方面？请勾选并说明理由（多选题）"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="A" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q20" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="A.	文本提示可读性" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R21" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q21" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="B" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q22" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="B.	文本提示递进性" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R23" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q23" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="C" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q24" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="C.	音频提示的帮助性" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R25" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q25" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="D" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q26" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="D.	单次报告可理解性" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R27" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q27" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="E" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q28" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="E.	单次报告帮助程度" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R29" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q29" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="F" Checked="CheckEvent" Unchecked="UnCheckEvent"  VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q30" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="F.	总体报告可理解性" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R31" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q31" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="G" Checked="CheckEvent" Unchecked="UnCheckEvent" VerticalAlignment="Center" DockPanel.Dock="Left" Name="Q32" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="G.	总体报告帮助程度" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R33" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q33" FontSize="30"></TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox Tag="H" Checked="CheckEvent" Unchecked="UnCheckEvent" DockPanel.Dock="Left" VerticalAlignment="Center" Name="Q34" Margin="100 0 0 0"></CheckBox>
+                                    <DockPanel DockPanel.Dock="Left">
+                                        <TextBlock FontSize="30" Text="H.	其他方面的建议" Width="300" VerticalAlignment="Center"></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel DockPanel.Dock="Left" Margin="30 0 30 0" >
+                                        <TextBlock Name="R35" FontSize="30" VerticalAlignment="Center" Text="理由"></TextBlock>
+                                    </DockPanel>
+                                    <TextBox Name="Q35" FontSize="30"></TextBox>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="9. 请你用简要客观地评价该系统"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBox Name="Q36" FontSize="30" Height="120" TextWrapping="Wrap"></TextBox>
+                                </DockPanel>
+
+                                <DockPanel>
+                                    <TextBlock FontSize="30" TextWrapping="Wrap" Text="10. 最后，为了进一步提升系统的使用体验，你可能收到研究人员的采访邀约。请留下你的联系方式（仅供研究用，决不泄露个人信息）。"></TextBlock>
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock Margin="100 0 0 0" Text="我的手机号码是" DockPanel.Dock="Left" FontSize="30"></TextBlock>
+                                    <TextBox Margin="30 0 0 0" Name="Q37" FontSize="30" Width="400" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBox>
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Viewbox>
+                    </DockPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</Window>

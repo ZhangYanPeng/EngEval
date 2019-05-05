@@ -1,5 +1,6 @@
 ﻿using EngEval.Common.DateTransform;
 using EngEval.Model;
+using EngEval.Pages.Questionarie;
 using Http;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,12 @@ namespace EngEval.Pages.Test
 
             answer.SaveLocal();
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            if (mainwin.ListeningTest.testno == 3 && (mainwin.User.questionaireAF == "" || mainwin.User.questionaireAF == null))
+            {
+                TestQuestionaire testQuestionaire = new TestQuestionaire(mainwin.ListeningTest.testno);
+                testQuestionaire.Owner = mainwin;
+                testQuestionaire.ShowDialog();
+            }
             MessageBox.Show("恭喜您！已经完成测试！");
             mainwin.FrameNavigator("funclist");
             Close();

@@ -107,6 +107,15 @@ namespace EngEval.Pages.Report
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+
+            if (Type == 1 && mainwin.ListeningTest !=null && mainwin.ListeningTest.testno == 3)
+            {
+                if (mainwin.user.systemFeedback == null || mainwin.user.systemFeedback == "")
+                {
+                    Pages.Report.SystemFeedback sfd = new Pages.Report.SystemFeedback();
+                    sfd.ShowDialog();
+                }
+            }
             mainwin.FrameNavigator("funclist");
         }
 

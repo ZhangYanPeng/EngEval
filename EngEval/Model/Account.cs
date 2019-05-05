@@ -20,6 +20,7 @@ namespace EngEval.Model
         public string questionaire { get; set; }
         public string questionaireBF { get; set; }
         public string questionaireAF { get; set; }
+        public string systemFeedback { get; set; }
         public int english_level { get; set; }
         public int status { get; set; }
         public EngClass engClass { get; set; }
