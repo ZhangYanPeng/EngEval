@@ -1,4 +1,5 @@
 ﻿using EngEval.Common.Http;
+using EngEval.Pages.Questionarie;
 using Http;
 using QRCoder;
 using System;
@@ -30,11 +31,26 @@ namespace EngEval.Pages.Report
         public string No { get; set; }
         string url { get; set; }
 
-        public ReportQRCode(string no, int t)
+        public ReportQRCode(string no, int t, int testno = -1)
         {
             InitializeComponent();
             Type = t;
             No = no;
+
+            MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
+            try
+            {
+                if (testno==3 && (mainwin.User.questionaireAF == "" || mainwin.User.questionaireAF == null))
+                {
+                    TestQuestionaire testQuestionaire = new TestQuestionaire(3);
+                    testQuestionaire.Owner = mainwin;
+                    testQuestionaire.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                ;
+            }
             Loaded += CreateQRCode;
         }
 
@@ -108,9 +124,9 @@ namespace EngEval.Pages.Report
         {
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
 
-            if (Type == 1 && mainwin.ListeningTest !=null && mainwin.ListeningTest.testno == 3)
+            if (Type == 1)
             {
-                if (mainwin.user.systemFeedback == null || mainwin.user.systemFeedback == "")
+                if (mainwin.user.questionaireAF!=null && (mainwin.user.systemFeedback == null || mainwin.user.systemFeedback == "") )
                 {
                     Pages.Report.SystemFeedback sfd = new Pages.Report.SystemFeedback();
                     sfd.ShowDialog();

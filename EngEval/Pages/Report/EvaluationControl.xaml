@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="500">
     <DockPanel>
-        <Slider Name="SliderBar" Value="{Binding SelectionValue}" DockPanel.Dock="Top" Maximum="4" Margin="50 0 50 0" TickPlacement="Both" Ticks="0 1 2 3 4" Height="30" Width="400" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Slider Name="SliderBar" DockPanel.Dock="Top" Maximum="4" TickPlacement="Both" Ticks="0 1 2 3 4" Height="30" Width="400" IsSnapToTickEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Canvas Height="30">
             <DockPanel Canvas.Left="0" Canvas.Top="0" Width="100">
                 <TextBlock Name="label1" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>

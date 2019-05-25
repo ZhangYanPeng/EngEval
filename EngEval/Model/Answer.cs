@@ -90,7 +90,7 @@ namespace EngEval.Model
             return re.Substring(1, re.Length - 2);
         }
 
-        //生成timecon串
+        //生成timereact串
         public string FormatTimeReactString()
         {
             List<long> timereact = new List<long>();
@@ -105,35 +105,6 @@ namespace EngEval.Model
         //保存在本地临时文件
         public void SaveLocal()
         {
-            //MemoryStream stream = new MemoryStream();
-            //BinaryFormatter bf = new BinaryFormatter();
-            //bf.Serialize(stream, this);
-            //byte[] data = stream.ToArray();
-            //stream.Close();
-
-            ////创建文件
-            //try
-            //{
-            //    string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
-            //    FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-
-            //    BinaryWriter bw = new BinaryWriter(fs);
-            //    try
-            //    {
-            //        bw.Write(data);
-            //        bw.Close();
-            //        fs.Close();
-            //    }
-            //    catch (Exception)
-            //    {
-            //        fs.Close();
-            //        return;
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    return;
-            //}
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             //提交试题答题记录
             Dictionary<string, string> parameters = GetParamUpload();
@@ -155,40 +126,22 @@ namespace EngEval.Model
         //读取本地临时文件
         public Answer LoadAnswer()
         {
-            //打开文件
-            //string path = "TEMP/" + test.testno.ToString() + "PROCESS.ini";
-            //FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read, 4 * 1024 * 1024, true);
-            //BinaryFormatter bf = new BinaryFormatter();
-            //try
-            //{
-            //    object obj = bf.Deserialize(fileStream);
-            //    fileStream.Close();
-            //    return obj as Answer;
-            //}
-            //catch (Exception)
-            //{
-            //    return null;
-            //}
-            //finally
-            //{
-            //    fileStream.Close();
-            //}
             MainWindow mainwin = (MainWindow)Application.Current.MainWindow;
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("tid", mainwin.listeningTest.id);
             parameters.Add("uid", mainwin.user.id.ToString());
             Boolean isSuccess = false;
-            string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/testResult", parameters, ref isSuccess);
-            if (isSuccess)
-            {
-                Answer answer = JsonConvert.DeserializeObject<Answer>(rtext);
-                foreach (Record rec in records)
-                    rec.DeFormatResult();
-                answer.account = mainwin.User;
-                answer.test = mainwin.ListeningTest;
-                return answer;
-            }
-            return null;
+            string rtext="";
+            while (!isSuccess)
+                rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/testResult", parameters, ref isSuccess);
+            Answer answer = JsonConvert.DeserializeObject<Answer>(rtext);
+            if (answer == null)
+                return null;
+            foreach (Record rec in answer.records)
+                rec.DeFormatResult();
+            answer.account = mainwin.User;
+            answer.test = mainwin.ListeningTest;
+            return answer;
         }
     }
 
@@ -198,6 +151,8 @@ namespace EngEval.Model
     {
         public long start_time;
         public long answer_time;
+        public long timecon;
+        public long timereact;
         public long end_time;
         public List<int> answers;
         public string result;
@@ -209,6 +164,9 @@ namespace EngEval.Model
 
         public void DeFormatResult()
         {
+            start_time = 0;
+            answer_time = timecon;
+            end_time = answer_time + timereact;
             string[] sArray = Regex.Split(result, @"|", RegexOptions.IgnoreCase);
             foreach (string i in sArray)
             {

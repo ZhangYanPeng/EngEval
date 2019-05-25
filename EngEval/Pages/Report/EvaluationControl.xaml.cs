@@ -19,7 +19,6 @@ namespace EngEval.Pages.Report
     /// </summary>
     public partial class EvaluationControl : UserControl
     {
-        public int SelectionValue { get; set; }
         private List<String> labels;
         public List<String> Labels
         {
@@ -38,6 +37,11 @@ namespace EngEval.Pages.Report
                 label4.Text = labels[3];
                 label5.Text = labels[4];
             }
+        }
+
+        public int GetSelectionValue()
+        {
+            return (int)SliderBar.Value;
         }
 
         public EvaluationControl()

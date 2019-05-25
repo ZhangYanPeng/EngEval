@@ -65,7 +65,7 @@ namespace EngEval.Pages.Report
                 //    TestQuestionaire testQuestionaire = new TestQuestionaire(test.id);
                 //    testQuestionaire.ShowDialog();
                 //}
-                ReportQRCode page = new ReportQRCode(test.id, 0);
+                ReportQRCode page = new ReportQRCode(test.id, 0, test.testno);
                 mainwin.frmMain.Content = page;
             }
         }

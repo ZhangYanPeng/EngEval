@@ -46,6 +46,7 @@ namespace EngEval.Pages.Questionarie
             QuesContents = new List<QuesContent>();
             if (testno == 1)
             {
+                Guides.Text = "本问卷旨在调查大学生英语听力策略。请你根据数字所代表的意思，在问题后填写相应的数字。请根据自己的实际情况填写。此问卷仅作为学术研究，你所提供的信息将被保密，谢谢合作！";
                 QuesContents.Add(new QuesContent("我能理解听力中的特殊句式，如虚拟语气，倒装句、否定句等。","1"));
                 QuesContents.Add(new QuesContent("我能获取跟听力目的有关的信息。","2"));
                 QuesContents.Add(new QuesContent("我能获取数字、时间和地点等信息。","3"));
@@ -68,6 +69,7 @@ namespace EngEval.Pages.Questionarie
             }
             if (testno == 3)
             {
+                Guides.Text = "亲爱的同学，恭喜你完成三次测试！也非常感谢你参与本次问卷调研。本问卷旨在调查大学生英语听力策略。请你根据数字所代表的意思，在问题后填写相应的数字。请根据自己的实际情况填写。此问卷仅作为学术研究，你所提供的信息将被保密，谢谢合作！";
                 QuesContents.Add(new QuesContent("我能理解词汇或短语在具体情境下的意义，如book在短语read a book 和book a ticket中的意思不同。", "1"));
                 QuesContents.Add(new QuesContent("我能理解听力任务中的关键词汇或短语。", "2"));
                 QuesContents.Add(new QuesContent("我能理解英语听力中常见的固定搭配，如by the way。", "3"));
@@ -123,6 +125,10 @@ namespace EngEval.Pages.Questionarie
                 string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/submitQuestionaire", parameters, ref isSuccess);
                 if (isSuccess)
                 {
+                    if (testno == 1)
+                        mainwin.User.questionaireBF = "1";
+                    if (testno ==3)
+                        mainwin.User.questionaireAF = "1";
                     Close();
                 }
             }

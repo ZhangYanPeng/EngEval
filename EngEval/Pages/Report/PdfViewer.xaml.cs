@@ -21,6 +21,9 @@ namespace EngEval.Pages.Report
             {
                 moonPdfPanel.OpenFile(file_path);
                 _isLoaded = true;
+            }catch(AccessViolationException ave)
+            {
+                _isLoaded = false;
             }
             catch (Exception e)
             {

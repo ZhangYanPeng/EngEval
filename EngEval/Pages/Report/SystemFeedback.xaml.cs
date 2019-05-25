@@ -61,6 +61,7 @@ namespace EngEval.Pages.Report
                 string rtext = HttpRequestHelper.HttpGet(Setting.BASE_URL + "test/submitSystemFeedback", parameters, ref isSuccess);
                 if (isSuccess)
                 {
+                    mainwin.User.systemFeedback = "1";
                     Close();
                 }
             }
@@ -73,7 +74,7 @@ namespace EngEval.Pages.Report
             for (int i = 3; i <= 19; i++)
             {
                 EvaluationControl ec = QContent.FindName("Q" + i.ToString()) as EvaluationControl;
-                ques += ec.Labels[ec.SelectionValue] + @"|";
+                ques += ec.GetSelectionValue() + @"|";
             }
             for (int i = 20; i <= 34; i+=2)
             {

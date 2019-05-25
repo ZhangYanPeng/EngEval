@@ -9,25 +9,23 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize" 
         WindowStyle="None"
-        Title="问卷" Height="900" Width="1000">
+        Title="问卷" Height="900" Width="1150">
     <DockPanel>
-        
+
         <GroupBox FontSize="20" BorderBrush="Gray" Margin="5">
-            <GroupBox.Header>
-                <TextBlock DockPanel.Dock="Top" FontSize="30" Height="40" TextAlignment="Center">大学生英语听力策略问卷</TextBlock>
-            </GroupBox.Header>
             <DockPanel>
-                <TextBlock DockPanel.Dock="Top" FontSize="25" TextAlignment="Left" TextWrapping="Wrap" Margin="0 20 0 0">本问卷旨在调查大学生英语听力策略。请你根据数字所代表的意思，在问题后填写相应的数字。请根据自己的实际情况填写。此问卷仅作为学术研究，你所提供的信息将被保密，谢谢合作！</TextBlock>
+                <TextBlock DockPanel.Dock="Top" FontSize="30" Height="40" TextAlignment="Center" Margin="0 20 0 0">大学生英语听力策略问卷</TextBlock>
+                <TextBlock Name="Guides" Margin="20 5 20 5" DockPanel.Dock="Top" FontSize="25" TextAlignment="Left" TextWrapping="Wrap" ></TextBlock>
                 <TextBlock DockPanel.Dock="Top" FontSize="20" Height="40" TextAlignment="Center" TextWrapping="Wrap" Margin="0 20 0 0">1 =完全不符合我的情况;  2 =不符合我的情况;  3 =有时不符合我的情况; </TextBlock>
                 <TextBlock DockPanel.Dock="Top" FontSize="20" Height="40" TextAlignment="Center" TextWrapping="Wrap">4 =通常符合我的情况;  5 =完全符合我的情况</TextBlock>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="30 0 30 0">
-                    <DockPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="1000" Margin="30 0 30 0">
+                    <DockPanel Width="1000">
                         <Button Background="DeepSkyBlue" FontSize="20" Foreground="White" Margin="10" Height="35" Width="300" Click="Submit_Click" DockPanel.Dock="Bottom">提交问卷</Button>
-                        <ListView HorizontalContentAlignment="Stretch" Name="QuestionaireContent">
+                        <ListView HorizontalContentAlignment="Stretch" Name="QuestionaireContent" Width="1000">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <DockPanel>
-                                        <ComboBox DockPanel.Dock="Right" Width="300" Height="30" FontSize="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Tag="{Binding QNO}" SelectedValue="{Binding Selection}">
+                                    <DockPanel Width="900">
+                                        <ComboBox DockPanel.Dock="Right" Width="250" Height="30" FontSize="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Tag="{Binding QNO}" SelectedValue="{Binding Selection}">
                                             <ComboBoxItem IsSelected="True" >请选择</ComboBoxItem>
                                             <ComboBoxItem>1.完全不符合我的情况</ComboBoxItem>
                                             <ComboBoxItem>2.不符合我的情况</ComboBoxItem>
@@ -35,9 +33,9 @@
                                             <ComboBoxItem>4.通常符合我的情况</ComboBoxItem>
                                             <ComboBoxItem>5.完全符合我的情况</ComboBoxItem>
                                         </ComboBox>
-                                        <TextBlock FontSize="20" Width="30" TextWrapping="Wrap" Text="{Binding QNO}"></TextBlock>
-                                        <TextBlock FontSize="20" TextWrapping="Wrap" Text=". "></TextBlock>
-                                        <TextBlock FontSize="20" TextWrapping="Wrap" Width="600" Text="{Binding Text}"></TextBlock>
+                                        <TextBlock DockPanel.Dock="Left" FontSize="20" Width="30" TextWrapping="Wrap" Text="{Binding QNO}"></TextBlock>
+                                        <TextBlock DockPanel.Dock="Left" Width="10" FontSize="20" TextWrapping="Wrap" Text=". "></TextBlock>
+                                        <TextBlock FontSize="20" TextWrapping="Wrap" Text="{Binding Text}"></TextBlock>
                                     </DockPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
